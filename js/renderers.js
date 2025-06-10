@@ -21,11 +21,9 @@ const SkillsRenderer = {
 
     createSkillElement(skill) {
         const skillElement = document.createElement('div');
+        const name = skill[currentLanguage] || skill.ja;
         skillElement.className = 'skill-item';
-        skillElement.innerHTML = `
-            <h4>${skill.name}</h4>
-            <p>${skill.level}</p>
-        `;
+        skillElement.innerHTML = `#${name}`;
         return skillElement;
     }
 };

@@ -51,7 +51,7 @@ body.loaded {
 
 .btn-primary:hover {
     background: #0052A3;
-    transform: translateY(-2px);
+    /* transform: translateY(-2px); */
 }
 
 .btn-secondary {
@@ -64,6 +64,15 @@ body.loaded {
     background: #0066CC;
     color: white;
 }
+
+/* .btn-secondary.github-btn::before {
+    content: '\f09b';
+    font-family: 'Font Awesome 6 Brands';
+    display: inline-block;
+    margin-right: 8px;
+    vertical-align: middle;
+    font-size: 20px;
+} */
 
 /* Loading Overlay */
 .loading-overlay {
