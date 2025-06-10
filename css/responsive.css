@@ -1,0 +1,152 @@
+/* ==============================================
+   RESPONSIVE DESIGN
+   ============================================== */
+
+/* Tablet and Mobile */
+@media (max-width: 768px) {
+    /* Navigation */
+    .nav-desktop {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Hero Section */
+    .badge {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* About Section */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    /* Projects Section */
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Timeline */
+    .timeline::before {
+        left: 1rem;
+    }
+    
+    .timeline-item {
+        flex-direction: row !important;
+        padding-left: 3rem;
+    }
+    
+    .timeline-content {
+        width: 100%;
+    }
+    
+    .timeline-dot {
+        left: 1rem;
+    }
+    
+    /* Modal */
+    .modal-content {
+        margin: 1rem;
+        max-width: calc(100% - 2rem);
+    }
+}
+
+/* Mobile Only */
+@media (max-width: 480px) {
+    /* Container */
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Hero Section */
+    .hero {
+        padding: 100px 0 80px;
+    }
+    
+    /* Sections */
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    /* Modal */
+    .modal-body {
+        padding: 1rem;
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), 
+       (min-resolution: 192dpi) {
+    .badge-face {
+        box-shadow: 
+            0 20px 40px rgba(0, 0, 0, 0.2),
+            0 0 0 8px rgba(255, 255, 255, 0.95),
+            inset 0 2px 4px rgba(255, 255, 255, 0.9),
+            inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    /* ダークモードの設定が必要な場合はここに追加 */
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .badge {
+        transition: none;
+    }
+    
+    .sparkle {
+        animation: none;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .header,
+    .mobile-nav-overlay,
+    .loading-overlay,
+    .modal-overlay {
+        display: none !important;
+    }
+    
+    body {
+        opacity: 1 !important;
+        background: white !important;
+        color: black !important;
+    }
+    
+    .hero {
+        background: none !important;
+        padding: 2rem 0;
+    }
+    
+    .badge {
+        width: 150px;
+        height: 150px;
+    }
+}
