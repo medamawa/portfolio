@@ -19,3 +19,6 @@
 
 /* responsive design */
 @import url('responsive.css');
+
+/* dark mode styles */
+@import url('darkmode.css');
