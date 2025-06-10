@@ -73,6 +73,7 @@ const LanguageManager = {
      * 動的コンテンツを再レンダリング
      */
     reRenderDynamicContent() {
+        SkillsRenderer.render();
         ProjectsRenderer.render();
         ExperienceRenderer.render();
     },

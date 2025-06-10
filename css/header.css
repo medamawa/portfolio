@@ -4,12 +4,11 @@
 
 /* Header */
 .header {
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
     background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
 
@@ -109,7 +108,12 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
+    /* background: rgba(0, 0, 0, 0.3); */
+    backdrop-filter: blur(0px);
+    transition: backdrop-filter 1.8s ease;
+}
+
+.mobile-nav-overlay.active .mobile-nav-blur {
     backdrop-filter: blur(10px);
 }
 
@@ -131,11 +135,11 @@
 
 .mobile-nav ul {
     list-style: none;
-    padding: 2rem;
+    padding: 0rem 2rem 1rem;
 }
 
 .mobile-nav li {
-    margin: 1rem 0;
+    margin: 0.5rem 0;
 }
 
 .mobile-nav a {

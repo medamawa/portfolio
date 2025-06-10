@@ -40,14 +40,50 @@ const content = {
     
     // Skills data
     skills: [
-        { name: "C/C++", level: "Advanced" },
-        { name: "Python", level: "Advanced" },
-        { name: "PHP", level: "Intermediate" },
-        { name: "Swift", level: "Intermediate" },
-        { name: "JavaScript", level: "Intermediate" },
-        { name: "Machine Learning", level: "Intermediate" },
-        { name: "AR/VR", level: "Intermediate" },
-        { name: "Laravel", level: "Intermediate" }
+        {
+            ja: "エンジニアリング",
+            en: "Engineering"
+        },
+        {
+            ja: "コンピュータサイエンス",
+            en: "Computer science"
+        },
+        {
+            ja: "デザイン",
+            en: "Design"
+        },
+        {
+            ja: "プログラミング",
+            en: "Programming"
+        },
+        {
+            ja: "協調性",
+            en: "Communication"
+        },
+        {
+            ja: "リーダーシップ",
+            en: "Leadership"
+        },
+        {
+            ja: "簿記2級",
+            en: "Grade 2 Bookkeeping"
+        },
+        {
+            ja: "第2種電気工事士",
+            en: "Class 2 Electrician"
+        },
+        {
+            ja: "高い学習能力",
+            en: "Fast learner"
+        },
+        {
+            ja: "英語",
+            en: "English/Japanese"
+        },
+        {
+            ja: "ユーモラス",
+            en: "Humorous"
+        }
     ],
     
     // Projects data
