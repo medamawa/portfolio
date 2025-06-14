@@ -11,12 +11,10 @@ const AnimationManager = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
-        
         const observer = new IntersectionObserver(
             this.handleIntersection.bind(this), 
             observerOptions
         );
-        
         this.observeAnimationElements(observer);
     },
 

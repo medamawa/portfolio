@@ -14,8 +14,14 @@
 /* sections */
 @import url('sections.css');
 
+/* modal */
+@import url('modal.css');
+
 /* components */
 @import url('components.css');
 
 /* responsive design */
 @import url('responsive.css');
+
+/* dark mode styles */
+@import url('darkmode.css');
