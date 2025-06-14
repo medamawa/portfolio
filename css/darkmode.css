@@ -121,10 +121,16 @@
 
     .project-card:hover {
         box-shadow: 0 10px 30px var(--shadow-medium);
+        transform: translateY(-10px);
     }
 
     .project-image {
         background: var(--gradient-project);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .project-content {
+        background: var(--bg-card);
     }
 
     .project-title {
@@ -139,6 +145,7 @@
         background: var(--bg-secondary);
         color: var(--text-secondary);
         border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
     }
 
     /* Contact */
@@ -175,12 +182,80 @@
         border: 1px solid var(--border-color);
     }
 
-    .modal-close {
+    .modal-header {
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .modal-title {
+        color: var(--text-primary);
+    }
+
+    .project-period {
         color: var(--text-secondary);
     }
 
-    .modal-close:hover {
+    .project-period i {
         color: var(--text-primary);
+    }
+
+    .modal-rich-content h3 {
+        color: var(--text-primary);
+        border-bottom: 2px solid var(--text-primary);
+    }
+
+    .modal-rich-content h4 {
+        color: var(--text-secondary);
+    }
+
+    .modal-rich-content p {
+        color: var(--text-secondary);
+    }
+
+    .modal-rich-content pre {
+        background: var(--bg-secondary);
+        border-left: 4px solid var(--text-primary);
+    }
+
+    .modal-rich-content code {
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+    }
+
+    .modal-rich-content blockquote {
+        border-left: 4px solid var(--text-primary);
+        color: var(--text-secondary);
+    }
+
+    .modal-technologies h3 {
+        color: var(--text-primary);
+    }
+
+    .modal-technologies i {
+        color: var(--text-primary);
+    }
+
+    .modal-close {
+        background: var(--bg-secondary);
+        color: var(--text-secondary);
+        border: 1px solid var(--border-color);
+    }
+
+    .modal-close:hover {
+        background: var(--bg-primary);
+        color: var(--text-primary);
+    }
+
+    /* Custom Scrollbar for Dark Mode */
+    .modal-body::-webkit-scrollbar-track {
+        background: var(--bg-secondary);
+    }
+
+    .modal-body::-webkit-scrollbar-thumb {
+        background: var(--text-secondary);
+    }
+
+    .modal-body::-webkit-scrollbar-thumb:hover {
+        background: var(--text-primary);
     }
 
     /* Footer */
