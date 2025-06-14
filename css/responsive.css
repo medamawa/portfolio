@@ -46,6 +46,45 @@
     .projects-grid {
         grid-template-columns: 1fr;
     }
+
+    .modal-overlay {
+        padding: 1rem;
+    }
+    
+    .modal-content {
+        width: 95vw;
+        height: 85vh;
+    }
+    
+    .modal-body {
+        padding: 1.5rem;
+    }
+    
+    .modal-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .project-image-header {
+        font-size: 3rem;
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .modal-close {
+        top: 1rem;
+        right: 1rem;
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+    
+    .tech-tags {
+        justify-content: center;
+    }
     
     /* Timeline */
     .timeline::before {

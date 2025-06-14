@@ -17,6 +17,9 @@ const ModalManager = {
         
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+        
+        // 動的に追加されたスクリプトを実行
+        this.executeScripts(modalBody);
     },
 
     /**
@@ -24,9 +27,18 @@ const ModalManager = {
      */
     generateModalContent(project) {
         const title = project.title[currentLanguage] || project.title.ja;
-        const detailedDescription = project.detailedDescription[currentLanguage] || project.detailedDescription.ja;
         
-        let modalContent = this.generateBasicContent(project, title, detailedDescription);
+        let modalContent = this.generateHeaderSection(project, title);
+        
+        // リッチコンテンツ対応
+        if (project.richContent && project.richContent[currentLanguage]) {
+            modalContent += this.generateRichContent(project.richContent[currentLanguage]);
+        } else {
+            // フォールバック: 従来の詳細説明
+            const detailedDescription = project.detailedDescription[currentLanguage] || project.detailedDescription.ja;
+            modalContent += this.generateBasicDescription(detailedDescription);
+        }
+        
         modalContent += this.generateTechnologiesSection(project);
         
         if (project.award) {
@@ -41,20 +53,40 @@ const ModalManager = {
     },
 
     /**
-     * 基本コンテンツを生成
+     * ヘッダーセクションを生成
      */
-    generateBasicContent(project, title, detailedDescription) {
+    generateHeaderSection(project, title) {
         return `
-            <div class="project-image" style="margin-bottom: 2rem;">
-                ${project.image}
+            <div class="modal-header">
+                <div class="project-image-header">
+                    ${project.image}
+                </div>
+                <div class="project-meta">
+                    <h2 class="modal-title">${title}</h2>
+                    <p class="project-period">
+                        <i class="fas fa-calendar-alt"></i>
+                        <strong>${currentLanguage === 'ja' ? '期間:' : 'Period:'}</strong> ${project.period}
+                    </p>
+                </div>
             </div>
-            <h2 style="margin-bottom: 1rem; color: #333;">${title}</h2>
-            <p style="color: #666; margin-bottom: 1rem;">
-                <strong>${currentLanguage === 'ja' ? '期間:' : 'Period:'}</strong> ${project.period}
-            </p>
-            <p style="line-height: 1.8; margin-bottom: 2rem; color: #555;">
-                ${detailedDescription}
-            </p>
+        `;
+    },
+
+    /**
+     * リッチコンテンツを生成
+     */
+    generateRichContent(richContent) {
+        return `<div class="modal-rich-content">${richContent}</div>`;
+    },
+
+    /**
+     * 基本的な説明を生成（フォールバック）
+     */
+    generateBasicDescription(description) {
+        return `
+            <div class="modal-description">
+                <p>${description}</p>
+            </div>
         `;
     },
 
@@ -63,11 +95,12 @@ const ModalManager = {
      */
     generateTechnologiesSection(project) {
         return `
-            <div style="margin-bottom: 2rem;">
-                <h3 style="margin-bottom: 1rem; color: #333;">
-                    ${currentLanguage === 'ja' ? '使用技術:' : 'Technologies:'}
+            <div class="modal-technologies">
+                <h3>
+                    <i class="fas fa-code"></i>
+                    ${currentLanguage === 'ja' ? '使用技術' : 'Technologies'}
                 </h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <div class="tech-tags">
                     ${project.technologies.map(tech => 
                         `<span class="tech-tag">${tech}</span>`
                     ).join('')}
@@ -82,11 +115,12 @@ const ModalManager = {
     generateAwardSection(project) {
         const award = project.award[currentLanguage] || project.award.ja;
         return `
-            <div style="background: #f8f9fa; padding: 1rem; border-radius: 10px; margin-bottom: 2rem;">
-                <h4 style="color: #0066CC; margin-bottom: 0.5rem;">
-                    🏆 ${currentLanguage === 'ja' ? '受賞:' : 'Award:'}
+            <div class="modal-award">
+                <h4>
+                    <i class="fas fa-trophy"></i>
+                    ${currentLanguage === 'ja' ? '受賞' : 'Award'}
                 </h4>
-                <p style="color: #333; margin: 0;">${award}</p>
+                <p>${award}</p>
             </div>
         `;
     },
@@ -96,13 +130,29 @@ const ModalManager = {
      */
     generateGitHubSection(project) {
         return `
-            <div style="text-align: center;">
-                <a href="${project.github}" target="_blank" class="btn-primary" 
-                   style="display: inline-block; margin-top: 1rem;">
+            <div class="modal-actions">
+                <a href="${project.github}" target="_blank" class="btn-primary">
+                    <i class="fab fa-github"></i>
                     GitHub ${currentLanguage === 'ja' ? 'で見る' : 'Repository'}
                 </a>
             </div>
         `;
+    },
+
+    /**
+     * 動的に追加されたスクリプトを実行
+     */
+    executeScripts(container) {
+        const scripts = container.querySelectorAll('script');
+        scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            if (script.src) {
+                newScript.src = script.src;
+            } else {
+                newScript.textContent = script.textContent;
+            }
+            document.head.appendChild(newScript);
+        });
     },
 
     /**

@@ -40,7 +40,6 @@
     .header {
         background: var(--backdrop-blur);
         backdrop-filter: blur(20px);
-        border-bottom: 1px solid var(--border-color);
     }
 
     .nav-desktop a {
@@ -55,7 +54,6 @@
     .mobile-nav {
         background: var(--backdrop-blur);
         backdrop-filter: blur(20px);
-        border-bottom: 1px solid var(--border-color);
     }
 
     .mobile-nav a {

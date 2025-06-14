@@ -61,15 +61,27 @@ const HeaderManager = {
      * スクロール時のスタイルを適用
      */
     applyScrolledStyle(header) {
-        header.style.background = 'rgba(255, 255, 255, 0.98)';
-        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (isDarkMode) {
+            header.style.background = 'var(--backdrop-blur)';
+            header.style.boxShadow = '0 2px 20px var(--shadow-medium)';
+        } else {
+            header.style.background = 'rgba(255, 255, 255, 0.98)';
+            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        }
     },
 
     /**
      * デフォルトスタイルを適用
      */
     applyDefaultStyle(header) {
-        header.style.background = 'rgba(255, 255, 255, 0.95)';
-        header.style.boxShadow = 'none';
+        const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (isDarkMode) {
+            header.style.background = 'var(--backdrop-blur)';
+            header.style.boxShadow = 'none';
+        } else {
+            header.style.background = 'rgba(255, 255, 255, 0.95)';
+            header.style.boxShadow = 'none';
+        }
     }
 };

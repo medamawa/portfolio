@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
     ProjectsRenderer.render();
     ExperienceRenderer.render();
     NavigationManager.setupSmoothScrolling();
-    AnimationManager.setupIntersectionObserver();
     LoadingManager.init();
 });
 
