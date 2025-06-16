@@ -60,7 +60,7 @@ section {
 }
 
 .skill-item:hover {
-  transform: translateY(-5px);
+  transform: translateY(-2px);
 }
 
 /* Projects Section */

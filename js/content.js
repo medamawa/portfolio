@@ -208,8 +208,8 @@ func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: AR
                     </ul>
                     
                     <h4>デモ動画</h4>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="入力インタフェースデモ"></iframe>
-                    
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/gRjBkVZlTOw?si=nk9uV7Cedu-1ij8Y" title="指キータス デモ"></iframe>
+                                        
                     <h4>コア実装</h4>
                     <pre><code>import mediapipe as mp
 import cv2
