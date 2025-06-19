@@ -403,7 +403,7 @@ class HandTracker:
             technologies: ["Python", "Computer Vision", "Hand Tracking", "VR"],
             period: "2024年11月〜2025年1月",
             github: "https://github.com/medamawa/yubi-key",
-            image: "<img src='./images/design_works/football_ad1.png' alt='thumbnail' style='width: 100%; height: auto;'>",
+            image: "<img src='./images/design_works/thumbnail.png' alt='thumbnail' style='width: 100%; height: auto;'>",
             award: {
                 ja: "プログラミングコンテスト トップ3入賞",
                 en: "Top 3 in Programming Contest"

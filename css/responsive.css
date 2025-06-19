@@ -72,7 +72,7 @@
     
     /* タブレットでのプロジェクト画像ヘッダー */
     .project-image-header img {
-        max-width: 100px;
+        /* max-width: 100px; */
         max-height: 100px;
     }
     
@@ -141,7 +141,7 @@
     
     /* モバイルでのプロジェクト画像ヘッダー */
     .project-image-header img {
-        max-width: 80px;
+        /* max-width: 80px; */
         max-height: 80px;
     }
 }
