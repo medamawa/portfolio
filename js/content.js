@@ -445,7 +445,7 @@ class HandTracker:
             technologies: ["Python", "OpenCV", "Machine Learning", "Computer Vision"],
             period: "2024年2月〜3月",
             github: "https://github.com/medamawa/navi-ken",
-            image: "👁️"
+            image: "<img src='./images/me.JPG' alt='thumbnail' style='width: 100%; height: auto;'>",
         },
         {
             id: "mini-projects",

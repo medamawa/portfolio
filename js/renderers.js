@@ -52,8 +52,20 @@ const ProjectsRenderer = {
         const title = project.title[currentLanguage] || project.title.ja;
         const description = project.description[currentLanguage] || project.description.ja;
         
+        // 画像がimgタグで始まる場合、背景画像を設定
+        let backgroundImageTag = '';
+        if (project.image && project.image.trim().startsWith('<img')) {
+            // imgタグからsrc属性を抽出
+            const srcMatch = project.image.match(/src=["']([^"']+)["']/);
+            if (srcMatch) {
+                const imageUrl = srcMatch[1];
+                backgroundImageTag = `<div class="project-image-bg" style="background-image: url('${imageUrl}');"></div>`;
+            }
+        }
+        
         projectElement.innerHTML = `
             <div class="project-image">
+                ${backgroundImageTag}
                 ${project.image}
             </div>
             <div class="project-content">
