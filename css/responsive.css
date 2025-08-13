@@ -70,6 +70,12 @@
         font-size: 3rem;
     }
     
+    /* タブレットでのプロジェクト画像ヘッダー */
+    .project-image-header img {
+        /* max-width: 100px; */
+        max-height: 100px;
+    }
+    
     .modal-title {
         font-size: 1.5rem;
     }
@@ -131,6 +137,12 @@
     /* Modal */
     .modal-body {
         padding: 1rem;
+    }
+    
+    /* モバイルでのプロジェクト画像ヘッダー */
+    .project-image-header img {
+        /* max-width: 80px; */
+        max-height: 80px;
     }
 }
 

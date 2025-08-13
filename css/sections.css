@@ -60,7 +60,7 @@ section {
 }
 
 .skill-item:hover {
-  transform: translateY(-5px);
+  transform: translateY(-2px);
 }
 
 /* Projects Section */
@@ -82,7 +82,7 @@ section {
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
@@ -95,6 +95,36 @@ section {
     justify-content: center;
     color: white;
     font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image:has(.project-image-bg) {
+    background: none;
+}
+
+.project-image-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* filter: blur(10px); */
+    z-index: 1;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100% !important;
+    object-fit: contain;
+    object-position: center;
+    transition: transform 0.3s ease;
+    position: relative;
+    backdrop-filter: blur(10px);
+    z-index: 2;
 }
 
 .project-content {

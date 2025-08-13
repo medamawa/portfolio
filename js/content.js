@@ -7,7 +7,7 @@ const content = {
             "hero-subtitle": "東京大学工学部機械情報工学科 竹内研究室",
             "view-projects": "プロジェクトを見る",
             "about-title": "About",
-            "about-description": "東京大学工学部機械情報工学科で学んでいる学生です。C/C++とPythonを得意とし、ソフトウェア開発を通じてアイデアを素早く形にすることに情熱を持っています。将来は、人々の日常生活を支援し、改善する重要なサービスの開発に貢献したいと考えています。",
+            "about-description": "東京大学工学部機械情報工学科の学生です。コンピュータサイエンスを得意とし、ソフトウェア開発を通じてアイデアを形にすることに情熱を持っています。将来は、人々の生活の基盤となるサービスの開発に貢献したいと考えています。",
             "skills-title": "スキル",
             "projects-title": "Projects",
             "experience-title": "Experience",
@@ -101,72 +101,10 @@ const content = {
             // 新しいrichContentフィールド
             richContent: {
                 ja: `
-                    <h3>プロジェクト概要</h3>
-                    <p>このプロジェクトは、位置情報技術とAR（拡張現実）を組み合わせた革新的なソーシャルメディアアプリケーションです。</p>
-                    
-                    <h4>主な機能</h4>
-                    <ul>
-                        <li>位置情報に基づいた投稿の作成・表示</li>
-                        <li>ARカメラを通じた実世界への投稿表示</li>
-                        <li>リアルタイムでの投稿マッピング</li>
-                        <li>ユーザー認証とプロフィール管理</li>
-                    </ul>
-                    
-                    <h4>技術的な挑戦</h4>
-                    <p>Laravel で認証や投稿管理を行う API を開発し、Swift でネイティブiOSアプリを制作しました。特に困難だったのは、位置情報の精度向上とARでの投稿表示の最適化でした。</p>
-                    
-                    <h4>デモ動画</h4>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="デモ動画"></iframe>
-                    
-                    <h4>アーキテクチャ図</h4>
-                    <img src="https://via.placeholder.com/600x300/0066CC/FFFFFF?text=System+Architecture" alt="システムアーキテクチャ">
-                    
-                    <h4>コード例</h4>
-                    <pre><code>// Swift ARKit実装例
-func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-    if let planeAnchor = anchor as? ARPlaneAnchor {
-        let plane = createPlaneNode(anchor: planeAnchor)
-        node.addChildNode(plane)
-    }
-}</code></pre>
-                    
-                    <blockquote>
-                        "位置情報とARを組み合わせることで、現実世界にデジタルな情報を重ね合わせる新しい体験を提供できました。"
-                    </blockquote>
+                
                 `,
                 en: `
-                    <h3>Project Overview</h3>
-                    <p>This project is an innovative social media application that combines location-based technology with AR (Augmented Reality).</p>
-                    
-                    <h4>Key Features</h4>
-                    <ul>
-                        <li>Location-based post creation and display</li>
-                        <li>Real-world post visualization through AR camera</li>
-                        <li>Real-time post mapping</li>
-                        <li>User authentication and profile management</li>
-                    </ul>
-                    
-                    <h4>Technical Challenges</h4>
-                    <p>Developed an API for authentication and post management using Laravel, and created a native iOS app using Swift. The most challenging aspects were improving location accuracy and optimizing AR post display.</p>
-                    
-                    <h4>Demo Video</h4>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Demo Video"></iframe>
-                    
-                    <h4>Architecture Diagram</h4>
-                    <img src="https://via.placeholder.com/600x300/0066CC/FFFFFF?text=System+Architecture" alt="System Architecture">
-                    
-                    <h4>Code Example</h4>
-                    <pre><code>// Swift ARKit implementation example
-func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-    if let planeAnchor = anchor as? ARPlaneAnchor {
-        let plane = createPlaneNode(anchor: planeAnchor)
-        node.addChildNode(plane)
-    }
-}</code></pre>
-                    
-                    <blockquote>
-                        "By combining location information with AR, we were able to provide a new experience that overlays digital information onto the real world."
-                    </blockquote>
+                
                 `
             },
             // 従来のdetailedDescriptionも保持（フォールバック用）
@@ -179,16 +117,15 @@ func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: AR
             github: "https://github.com/medamawa/locomiAPI",
             image: "📍"
         },
-        
         {
-            id: "hmd-interface",
+            id: "yubi-key",
             title: {
                 ja: "HMD時代に向けた新しい入力インタフェース",
                 en: "New Input Interface for HMD Era"
             },
             description: {
-                ja: "VRゴーグル装着時の新しい文字入力方法の提案と実装",
-                en: "Proposal and implementation of new text input method for VR headsets"
+                ja: "新しい入力方法の提案と実装",
+                en: "Proposal and implementation of new text input method"
             },
             richContent: {
                 ja: `
@@ -208,8 +145,8 @@ func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: AR
                     </ul>
                     
                     <h4>デモ動画</h4>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="入力インタフェースデモ"></iframe>
-                    
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/gRjBkVZlTOw?si=nk9uV7Cedu-1ij8Y" title="指キータス デモ"></iframe>
+                                        
                     <h4>コア実装</h4>
                     <pre><code>import mediapipe as mp
 import cv2
@@ -296,51 +233,130 @@ class HandTracker:
             }
         },
         {
-            id: "location-sns",
+            id: "design_works",
             title: {
-                ja: "位置情報ベースのSNS & ARレンズ",
-                en: "Location-based SNS & AR Lens"
+                ja: "デザインワークス",
+                en: "Design Works"
             },
             description: {
-                ja: "位置情報に紐づいた投稿をARで表示できるスマートフォンアプリケーション",
-                en: "A smartphone application that displays location-based posts in AR"
+                ja: "デザインの作品集",
+                en: "Collection of design works"
+            },
+            image: "<img src='./images/design_works/thumbnail.png' alt='thumbnail' style='width: 100%; height: auto;'>",
+            technologies: ["Photoshop", "Illustrator", "My Hand"],
+            period: "2024年11月〜2025年1月",
+            richContent: {
+                ja: `
+                    <h3>駅看板</h3>
+
+                    <h3>パンフレット２０２４</h3>
+
+                    <h3>新歓紙の一面広告</h3>
+                    <img src='./images/design_works/football_ad1.png' alt='paper_ad'>
+                `,
+                en: `
+                    <h3>station ad</h3>
+
+                    <h3>leafret 2024</h3>
+
+                    <h3>ad in school paper</h3>
+                    <img src='./images/design_works/football_ad1.png' alt='paper_ad'>
+                
+                `
             },
             detailedDescription: {
-                ja: "Laravel で認証や投稿管理を行う API を開発して、Swift でスマホアプリを制作しました。アプリでは、位置情報に紐づいた投稿を AR で見ることができます。リアルタイムで投稿を地図上にマッピングし、ARカメラを通じて実世界に投稿内容を表示する革新的なソーシャルメディア体験を提供します。",
-                en: "Developed an API for authentication and post management using Laravel, and created a smartphone app using Swift. The app allows users to view location-based posts in AR. It provides an innovative social media experience by mapping posts in real-time on a map and displaying post content in the real world through AR camera."
+                ja: "あとで消す",
+                en: "delete later"
             },
-            technologies: ["PHP", "Laravel", "Swift", "AR", "API"],
-            period: "2020年5月〜9月",
-            github: "https://github.com/medamawa/locomiAPI",
-            image: "📍" // Emoji as placeholder, can be replaced with actual image URL
         },
         {
-            id: "closed-community",
+            id: "stirling_engine",
             title: {
-                ja: "学生のクローズドコミュニティサイト",
-                en: "Student Closed Community Site"
+                ja: "スターリングエンジン",
+                en: "Stirling Engine"
             },
             description: {
-                ja: "役職管理機能を持つ学生向けコミュニティプラットフォーム",
-                en: "A community platform for students with role management features"
+                ja: "学生5人で、スターリングエンジンを計画・設計・加工・組み立て",
+                en: "Planning, Design, Manufacturing, and Assembly of a Stirling Engine by a Team of 5 Students"
+            },
+            image: "<img src='./images/stirling_engine/thumbnail.png' alt='thumbnail' style='width: 100%; height: auto;'>",
+            technologies: ["CAD", "Thermodynamics", "Kinematics",  "Teamwork", "金属加工"],
+            period: "2024年5月〜7月",
+            richContent: {
+                ja: `
+                    <h3>完成品</h3>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/3HUCLQ65Ggw?si=hGABOGLsOHZqKuSC" title="Stirling Engine"></iframe>
+                    <p>学生5人のチームで、スターリングエンジンの計画、設計、加工、組み立ての全工程を行った。</p>
+
+                    <h3>計画</h3>
+                    スターリングエンジンの概形を決め、製作スケジュールを定めた。
+
+                    <h3>設計</h3>
+                    熱力学と材料力学の計算に基づいて詳細な寸法を決定。CADに起こしていった。
+                    <div style='width: 100%; overflow-x: auto; white-space: nowrap; padding: 20px;'>
+                        <img src='./images/stirling_engine/blueprint1.jpg' alt="blueprint1" style="height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/blueprint2.jpg' alt="blueprint2" style="height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/blueprint3.jpg' alt="blueprint3" style="height: 200px; margin-right: 10px; display: inline-block;">
+                    </div>
+
+                    <h3>加工</h3>
+                    金属塊を旋盤で削り出し、切断やネジ穴あけを行なった。
+                    <div style='width: 100%; overflow-x: auto; white-space: nowrap; padding: 20px;'>
+                        <img src='./images/stirling_engine/manufacturing1.jpeg' alt="manufacturing1" style="height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/manufacturing2.jpeg' alt="manufacturing2" style="height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/manufacturing3.jpeg' alt="manufacturing3" style="height: 200px; margin-right: 10px; display: inline-block;">
+                    </div>
+
+                    <h3>組み立て</h3>
+                    軸合わせの微調整を繰り返しながら組み立てた。
+                    <div style='width: 100%; overflow-x: auto; white-space: nowrap; padding: 20px;'>
+                        <img src='./images/stirling_engine/assembling.jpeg' alt="assembling" style="height: 200px; margin-right: 10px; display: inline-block;">
+                    </div>
+                `,
+                en: `
+                    <h3>Finished Product</h3>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/3HUCLQ65Ggw?si=hGABOGLsOHZqKuSC" title="Stirling Engine"></iframe>
+                    <p>A team of 5 students conducted the entire process of planning, designing, manufacturing, and assembling a Stirling engine.</p>
+
+                    <h3>Planning</h3>
+                    We determined the overall configuration of the Stirling engine and established the production schedule.
+
+                    <h3>Design</h3>
+                    Based on thermodynamic and material mechanics calculations, we determined detailed dimensions and created CAD models.
+                    <div style='width: 100%; overflow-x: auto; white-space: nowrap; padding: 20px;'>
+                        <img src='./images/stirling_engine/blueprint1.jpg' alt="blueprint1" style="height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/blueprint2.jpg' alt="blueprint2" style="height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/blueprint3.jpg' alt="blueprint3" style="height: 200px; margin-right: 10px; display: inline-block;">
+                    </div>
+
+                    <h3>Manufacturing</h3>
+                    We machined metal blocks using a lathe, performed cutting operations, and drilled screw holes.
+                    <div style='width: 100%; overflow-x: auto; white-space: nowrap; padding: 20px;'>
+                        <img src='./images/stirling_engine/manufacturing1.jpeg' alt="manufacturing1" style="height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/manufacturing2.jpeg' alt="manufacturing2" style="height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/manufacturing3.jpeg' alt="manufacturing3" style="height: 200px; margin-right: 10px; display: inline-block;">
+                    </div>
+
+                    <h3>Assembly</h3>
+                    We assembled the engine while repeatedly making fine adjustments to shaft alignment.
+                    <div style='width: 100%; overflow-x: auto; white-space: nowrap; padding: 20px;'>
+                        <img src='./images/stirling_engine/assembly.jpeg' alt="assembly" style="height: 200px; margin-right: 10px; display: inline-block;">
+                    </div>
+                `
             },
             detailedDescription: {
-                ja: "個々のアカウントにクラブや委員会などの役職を持たせて、管理できるように Laravel 標準の認証をカスタマイズしました。階層的な権限管理システムを実装し、組織内での役割に応じたアクセス制御を実現しています。",
-                en: "Customized Laravel's standard authentication to allow individual accounts to have and manage roles such as clubs and committees. Implemented a hierarchical permission management system that provides access control based on roles within the organization."
+                ja: "VR ゴーグル等の HMD 装着時の手元が見えない状況を想定した、キーボード入力に変わる新たな入力インタフェースを提案、実装しました。",
+                en: "Proposed and implemented a new input interface to replace keyboard input when wearing HMDs like VR goggles."
             },
-            technologies: ["PHP", "Laravel", "MySQL", "Authentication"],
-            period: "2020年5月〜7月",
-            github: "https://github.com/medamawa/nada-sc-",
-            image: "👥"
         },
         {
-            id: "vision-assistant",
+            id: "mini-projects",
             title: {
-                ja: "視覚障害者のための補助アプリ",
+                ja: "ミニプロジェクト集",
                 en: "Vision Assistant App for the Visually Impaired"
             },
             description: {
-                ja: "リアルタイム画像認識技術を用いた視覚障害者向け補助アプリケーション",
+                ja: "自作bash, 自作renderer, 自作decoderなどのミニプロジェクト集",
                 en: "An assistive application for visually impaired users using real-time image recognition"
             },
             detailedDescription: {
@@ -350,31 +366,110 @@ class HandTracker:
             technologies: ["Python", "OpenCV", "Machine Learning", "Computer Vision"],
             period: "2024年2月〜3月",
             github: "https://github.com/medamawa/navi-ken",
-            image: "👁️"
+            image: "💻"
         },
         {
-            id: "hmd-interface",
+            id: "sample",
             title: {
-                ja: "HMD時代に向けた新しい入力インタフェース",
-                en: "New Input Interface for HMD Era"
+                ja: "タイトル",
+                en: "title"
             },
             description: {
-                ja: "VRゴーグル装着時の新しい文字入力方法の提案と実装",
-                en: "Proposal and implementation of new text input method for VR headsets"
+                ja: "説明",
+                en: "description"
+            },
+            image: "画像",
+            technologies: ["タグ", "Computer Vision", "Hand Tracking", "VR"],
+            period: "開発期間 2024年11月〜2025年1月",
+            richContent: {
+                ja: `
+                <h1>header 1</h1>
+                <h2>header 2</h2>
+                <h3>header 3</h3>
+                <h4>header 4</h4>
+                <p>p tag text <strong>strong one</strong></p>
+                plane text
+
+                <h4>image</h4>
+                <img src='./images/design_works/thumbnail.png' alt='image'>
+                
+                <h4>list</h4>
+                <ul>
+                    <li>list 1</li>
+                    <li>list 2</li>
+                    <li>list 3</li>
+                    <li>list 4</li>
+                </ul>
+                    
+                <h4>youtube link</h4>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/gRjBkVZlTOw?si=nk9uV7Cedu-1ij8Y" title="指キータス デモ"></iframe>
+                                        
+                <h4>code</h4>
+                <pre><code>
+#include <iostream>
+int main()
+{
+    std::cout << 'hello world' << std::endl;
+    return (0);
+}
+                </code></pre>
+                `,
+                en: `
+                    <h3>Project Background</h3>
+                    <p>With the proliferation of HMDs (Head Mounted Displays) like VR goggles, traditional keyboard input faces the challenge of not being able to see your hands. To solve this problem, I developed an innovative interface that performs text input by tracking finger movements.</p>
+                    
+                    <h4>Developed System</h4>
+                    <img src="https://via.placeholder.com/600x400/0066CC/FFFFFF?text=Hand+Tracking+System" alt="Hand Tracking System">
+                    
+                    <h4>Technical Approach</h4>
+                    <p>Used OpenCV and MediaPipe to achieve real-time hand tracking. Specifically utilized the following technologies:</p>
+                    <ul>
+                        <li>High-precision hand landmark detection with MediaPipe</li>
+                        <li>Custom gesture recognition algorithms</li>
+                        <li>Improved input accuracy through machine learning</li>
+                        <li>Real-time processing optimization</li>
+                    </ul>
+                    
+                    <h4>Demo Video</h4>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Input Interface Demo"></iframe>
+                    
+                    <h4>Core Implementation</h4>
+                    <pre><code>import mediapipe as mp
+import cv2
+import numpy as np
+
+class HandTracker:
+    def __init__(self):
+        self.mp_hands = mp.solutions.hands
+        self.hands = self.mp_hands.Hands(
+            static_image_mode=False,
+            max_num_hands=2,
+            min_detection_confidence=0.7
+        )
+    
+    def process_frame(self, frame):
+        results = self.hands.process(frame)
+        if results.multi_hand_landmarks:
+            return self.extract_landmarks(results)
+        return None</code></pre>
+                    
+                    <h4>Contest Results</h4>
+                    <p>Achieved <strong>Top 3 placement</strong> in a programming contest with 60 participants. Judges praised it as "a practical solution for the future HMD era."</p>
+                    
+                    <h4>CodePen Demo</h4>
+                    <iframe height="400" style="width: 100%;" scrolling="no" title="Hand Gesture Demo" src="https://codepen.io/example/embed/xyz123?default-tab=result" frameborder="no" loading="lazy"></iframe>
+                `
             },
             detailedDescription: {
-                ja: "VR ゴーグル等の HMD 装着時の手元が見えない状況を想定した、キーボード入力に変わる新たな入力インタフェースを提案、実装しました。指の動きを追跡して文字入力を行う革新的な手法で、ユーザーが手元を見ずに直感的にテキスト入力できるシステムを開発しました。60名参加のプログラミングコンテストでトップ3入賞を果たしました。",
-                en: "Proposed and implemented a new input interface to replace keyboard input when wearing HMDs like VR goggles, assuming situations where hands are not visible. Developed an innovative system that allows intuitive text input without users looking at their hands by tracking finger movements. Achieved a Top 3 finish in a programming contest with 60 participants."
+                ja: "詳細説明",
+                en: "detailed description"
             },
-            technologies: ["Python", "Computer Vision", "Hand Tracking", "VR"],
-            period: "2024年11月〜2025年1月",
             github: "https://github.com/medamawa/yubi-key",
-            image: "🥽",
             award: {
                 ja: "プログラミングコンテスト トップ3入賞",
                 en: "Top 3 in Programming Contest"
             }
-        }
+        },
     ],
     
     // Experience data
@@ -430,7 +525,7 @@ class HandTracker:
                 en: "Captain, American Football Club, University of Tokyo"
             },
             description: {
-                ja: "リーグ優勝を目標に掲げ、チーム全員が目標を意識して練習に取り組めるようチームマネジメント",
+                ja: "体重65kg -> 100kg",
                 en: "Leading the team towards league championship, implementing team management to ensure all members focus on the goal during practice"
             }
         },
