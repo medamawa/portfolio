@@ -226,6 +226,18 @@
         color: var(--text-secondary);
     }
 
+    .modal-rich-content ul {
+        color: var(--text-secondary);
+    }
+
+    .modal-rich-content li {
+        color: var(--text-secondary);
+    }
+
+    .modal-rich-content li::before {
+        color: var(--text-primary);
+    }
+
     .modal-technologies h3 {
         color: var(--text-primary);
     }

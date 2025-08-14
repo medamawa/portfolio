@@ -89,151 +89,109 @@ const content = {
     // Projects data
     projects: [
         {
-            id: "location-sns",
-            title: {
-                ja: "位置情報ベースのSNS & ARレンズ",
-                en: "Location-based SNS & AR Lens"
-            },
-            description: {
-                ja: "位置情報に紐づいた投稿をARで表示できるスマートフォンアプリケーション",
-                en: "A smartphone application that displays location-based posts in AR"
-            },
-            // 新しいrichContentフィールド
-            richContent: {
-                ja: `
-                
-                `,
-                en: `
-                
-                `
-            },
-            // 従来のdetailedDescriptionも保持（フォールバック用）
-            detailedDescription: {
-                ja: "Laravel で認証や投稿管理を行う API を開発して、Swift でスマホアプリを制作しました。アプリでは、位置情報に紐づいた投稿を AR で見ることができます。",
-                en: "Developed an API for authentication and post management using Laravel, and created a smartphone app using Swift. The app allows users to view location-based posts in AR."
-            },
-            technologies: ["PHP", "Laravel", "Swift", "AR", "API"],
-            period: "2020年5月〜9月",
-            github: "https://github.com/medamawa/locomiAPI",
-            image: "📍"
-        },
-        {
             id: "yubi-key",
             title: {
                 ja: "HMD時代に向けた新しい入力インタフェース",
                 en: "New Input Interface for HMD Era"
             },
             description: {
-                ja: "新しい入力方法の提案と実装",
+                ja: "革新的な文字入力インタフェースの提案と実装",
                 en: "Proposal and implementation of new text input method"
             },
+            period: "2024年11月〜2025年1月",
+            github: "https://github.com/medamawa/yubi-key",
+            award: {
+                ja: "プログラミングコンテスト トップ3入賞",
+                en: "Top 3 in UTokyo Programming Contest"
+            },
+            image: "<img src='./images/yubi_key/sashimida.png' alt='thumbnail' style='width: 100%; height: auto;'>",
+            technologies: ["Python", "OpenCV", "Computer Vision", "Human Interface", "Hand Tracking", "VR", "AR"],
             richContent: {
                 ja: `
                     <h3>プロジェクト背景</h3>
-                    <p>VRゴーグル等のHMD（Head Mounted Display）が普及する中、従来のキーボード入力では手元が見えないという課題がありました。この問題を解決するため、指の動きを追跡して文字入力を行う革新的なインタフェースを開発しました。</p>
-                    
-                    <h4>開発したシステム</h4>
-                    <img src="https://via.placeholder.com/600x400/0066CC/FFFFFF?text=Hand+Tracking+System" alt="手指追跡システム">
-                    
-                    <h4>技術的アプローチ</h4>
-                    <p>OpenCVとMediaPipeを使用して、リアルタイムでの手指認識を実現しました。特に以下の技術を活用：</p>
-                    <ul>
-                        <li>MediaPipeによる高精度な手指ランドマーク検出</li>
-                        <li>カスタムジェスチャー認識アルゴリズム</li>
-                        <li>機械学習による入力精度の向上</li>
-                        <li>リアルタイム処理の最適化</li>
-                    </ul>
-                    
-                    <h4>デモ動画</h4>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/gRjBkVZlTOw?si=nk9uV7Cedu-1ij8Y" title="指キータス デモ"></iframe>
-                                        
-                    <h4>コア実装</h4>
-                    <pre><code>import mediapipe as mp
-import cv2
-import numpy as np
+                    <p>VRゴーグル等のHead Mounted Display（HMD）の普及が進む中、その入力インタフェースは未だ確立されていません。HMDを装着すると手元が見えなくなるため、従来のキーボードを使うことができず、仮想空間上のキーボードで入力するのが主流です。しかし、物理フィードバックを前提として進化してきたキーボードは、この利用シーンに最適化されていません。</p>
+                    <p>そこで、指の動きを追跡して文字入力を行う革新的なインタフェース「指キータス」を開発しました。これは「ユビキタス x 指キー」のコンセプトで、いつでもどこでも指だけで入力できるシステムです。</p>
+                    <iframe height="300" src="https://www.youtube.com/embed/gRjBkVZlTOw?si=nk9uV7Cedu-1ij8Y?rel=0" title="yubi-key" allowfullscreen></iframe>
 
-class HandTracker:
-    def __init__(self):
-        self.mp_hands = mp.solutions.hands
-        self.hands = self.mp_hands.Hands(
-            static_image_mode=False,
-            max_num_hands=2,
-            min_detection_confidence=0.7
-        )
-    
-    def process_frame(self, frame):
-        results = self.hands.process(frame)
-        if results.multi_hand_landmarks:
-            return self.extract_landmarks(results)
-        return None</code></pre>
-                    
-                    <h4>コンテスト結果</h4>
-                    <p>60名が参加したプログラミングコンテストで<strong>トップ3入賞</strong>を果たしました。審査員からは「将来のHMD時代を見据えた実用的なソリューション」として高い評価をいただきました。</p>
-                    
-                    <h4>CodePen デモ</h4>
-                    <iframe height="400" style="width: 100%;" scrolling="no" title="Hand Gesture Demo" src="https://codepen.io/example/embed/xyz123?default-tab=result" frameborder="no" loading="lazy"></iframe>
+                    <h3>技術的アプローチ</h3>
+                    <p>指キータスは、各指の位置をバイナリ（0/1）で表現し、その組み合わせによって文字を入力するシステムです。実装にはARマーカーを使用し、リアルタイムで手指の動きを認識することを可能にしています。</p>
+                    <h4>基本メカニズム</h4>
+                    <ul>
+                        <li>左手でレイヤー（入力モード）を選択</li>
+                        <li>右手で文字を選択（5本指の組み合わせで32通りの入力が可能）</li>
+                        <li>左手親指で入力を確定</li>
+                    </ul>
+                    <h4>レイヤー構造</h4>
+                    <ul>
+                        <li>レイヤー1：使用頻度の高い基本文字（a, e, o, t, r など）</li>
+                        <li>レイヤー2：その他のアルファベット（h, i, y, l, m など）</li>
+                        <li>レイヤー3：記号類（カンマ、ピリオド、疑問符など）</li>
+                    </ul>
+
+                    <h3>工夫</h3>
+                    <h4>文字配置の最適化</h4>
+                    <p>英語で最も使用頻度の高い文字を、単一の指を動かすだけで入力できる位置に配置しました。さらに、頻出する文字の組み合わせ（例：th, er, you など）を考慮し、連続入力時の指の動きが自然になるよう配置を工夫しました。これにより、少ない動作で効率的な入力が可能になります。</p>
+                    <h4>誤入力防止の仕組み</h4>
+                    <p>指のオンオフを切り替える閾値を可変に決定し、使用環境や個人の癖に適応できるようにしました。また、作るのが難しい運指や似たような指の形は避けるようにレイヤーを配置し、認識精度と操作性を向上させています。</p>
+
+                    <h3>刺身打の開発</h3>
+                    <p>指キータスを楽しく練習できるよう、独自のタイピングゲーム「刺身打」を開発しました。これは有名な「寿司打」にインスパイアされた練習ソフトで、回転寿司のレーンを流れる刺身が画面外に出る前に、表示された英単語をタイピングするゲームです。</p>
+                    <iframe height="300" src="https://www.youtube.com/embed/uUMfLdd6yK8?si=nk9uV7Cedu-1ij8Y?rel=0" title="sashimida" allowfullscreen></iframe>
+                    <h4>主な機能</h4>
+                    <ul>
+                        <li>左右の手のポジションをリアルタイムで可視化</li>
+                        <li>入力速度と正確性をスコア化して表示</li>
+                        <li>段階的な難易度設定（初級・中級・上級）</li>
+                    </ul>
+                    <p>実際にDvorak配列を3日間練習したユーザーと対戦デモを行い、新しい入力方式でも実用的な速度で入力できることを実証しました。また、プロジェクトの発表資料自体を指キータスで作成し、システムの実用性を証明しました。</p>
                 `,
                 en: `
                     <h3>Project Background</h3>
-                    <p>With the proliferation of HMDs (Head Mounted Displays) like VR goggles, traditional keyboard input faces the challenge of not being able to see your hands. To solve this problem, I developed an innovative interface that performs text input by tracking finger movements.</p>
-                    
-                    <h4>Developed System</h4>
-                    <img src="https://via.placeholder.com/600x400/0066CC/FFFFFF?text=Hand+Tracking+System" alt="Hand Tracking System">
-                    
-                    <h4>Technical Approach</h4>
-                    <p>Used OpenCV and MediaPipe to achieve real-time hand tracking. Specifically utilized the following technologies:</p>
-                    <ul>
-                        <li>High-precision hand landmark detection with MediaPipe</li>
-                        <li>Custom gesture recognition algorithms</li>
-                        <li>Improved input accuracy through machine learning</li>
-                        <li>Real-time processing optimization</li>
-                    </ul>
-                    
-                    <h4>Demo Video</h4>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Input Interface Demo"></iframe>
-                    
-                    <h4>Core Implementation</h4>
-                    <pre><code>import mediapipe as mp
-import cv2
-import numpy as np
+                    <p>As Head-Mounted Displays (HMDs) and VR goggles become increasingly prevalent, their input interfaces remain largely unoptimized. When wearing an HMD, users cannot see their hands, making traditional keyboards impractical. Existing solutions typically rely on virtual keyboards displayed in the virtual space, but these lack the physical feedback that conventional keyboards provide.</p>
+                    <p>To address this challenge, I developed "Yubi-Key," an innovative interface that enables text input through finger-movement tracking. This system allows users to type using only finger gestures, making it well-suited for VR environments.</p>
+                    <iframe height="300" src="https://www.youtube.com/embed/gRjBkVZlTOw?si=nk9uV7Cedu-1ij8Y?rel=0" title="yubi-key" allowfullscreen></iframe>
 
-class HandTracker:
-    def __init__(self):
-        self.mp_hands = mp.solutions.hands
-        self.hands = self.mp_hands.Hands(
-            static_image_mode=False,
-            max_num_hands=2,
-            min_detection_confidence=0.7
-        )
-    
-    def process_frame(self, frame):
-        results = self.hands.process(frame)
-        if results.multi_hand_landmarks:
-            return self.extract_landmarks(results)
-        return None</code></pre>
-                    
-                    <h4>Contest Results</h4>
-                    <p>Achieved <strong>Top 3 placement</strong> in a programming contest with 60 participants. Judges praised it as "a practical solution for the future HMD era."</p>
-                    
-                    <h4>CodePen Demo</h4>
-                    <iframe height="400" style="width: 100%;" scrolling="no" title="Hand Gesture Demo" src="https://codepen.io/example/embed/xyz123?default-tab=result" frameborder="no" loading="lazy"></iframe>
-                `
+                    <h3>Technical Approach</h3>
+                    <p>Yubi-Key represents each finger position in binary (0/1), using combinations to input characters. The implementation uses AR markers to enable real-time finger movement recognition.</p>
+                    <h4>Core Mechanism</h4>
+                    <ul>
+                        <li>Left hand selects layers (input modes)</li>
+                        <li>Right hand selects characters (32 possible inputs using 5-finger combinations)</li>
+                        <li>Left thumb confirms input</li>
+                    </ul>
+                    <h4>Layer Structure</h4>
+                    <ul>
+                        <li>Layer 1: High-frequency basic letters (a, e, o, t, r, etc.)</li>
+                        <li>Layer 2: Additional alphabets (h, i, y, l, m, etc.)</li>
+                        <li>Layer 3: Symbols (comma, period, question mark, etc.)</li>
+                    </ul>
+
+                    <h3>Key Innovations</h3>
+                    <h4>Optimized Character Placement</h4>
+                    <p>The most frequently used English letters are positioned for single-finger activation. Additionally, common letter combinations (e.g., th, er, you) are considered to ensure natural finger movements during continuous input, enabling efficient typing with minimal motion.</p>
+                    <h4>Error Prevention System</h4>
+                    <p>The on/off threshold for finger detection is dynamically adjustable, adapting to different environments and individual user habits. Layer arrangements avoid difficult finger positions and similar hand shapes, improving recognition accuracy and usability.</p>
+
+                    <h3>Sashimida Development</h3>
+                    <p>To make learning Yubi-Key enjoyable, I developed "Sashimida," a unique typing game. Inspired by the popular "Sushi-Da" typing game, players must type displayed English words before sashimi pieces flow off the conveyor belt screen.</p>
+                    <iframe height="300" src="https://www.youtube.com/embed/uUMfLdd6yK8?si=nk9uV7Cedu-1ij8Y?rel=0" title="sashimida" allowfullscreen></iframe>
+                    <h4>Main Features</h4>
+                    <ul>
+                        <li>Real-time visualization of left and right hand positions</li>
+                        <li>Scoring system for typing speed and accuracy</li>
+                        <li>Progressive difficulty levels (beginner, intermediate, advanced)</li>
+                    </ul>
+                    <p>In a demonstration match against a user who practiced Dvorak layout for three days, I proved that this new input method achieves practical typing speeds. Furthermore, I created the project presentation itself using Yubi-Key, demonstrating the system's real-world applicability.</p>
+
+            `
             },
             detailedDescription: {
-                ja: "VR ゴーグル等の HMD 装着時の手元が見えない状況を想定した、キーボード入力に変わる新たな入力インタフェースを提案、実装しました。",
-                en: "Proposed and implemented a new input interface to replace keyboard input when wearing HMDs like VR goggles."
+                ja: "あとで消す",
+                en: "delete later"
             },
-            technologies: ["Python", "Computer Vision", "Hand Tracking", "VR"],
-            period: "2024年11月〜2025年1月",
-            github: "https://github.com/medamawa/yubi-key",
-            image: "🥽",
-            award: {
-                ja: "プログラミングコンテスト トップ3入賞",
-                en: "Top 3 in Programming Contest"
-            }
         },
         {
-            id: "design_works",
+            id: "design-works",
             title: {
                 ja: "デザインワークス",
                 en: "Design Works"
@@ -244,23 +202,43 @@ class HandTracker:
             },
             image: "<img src='./images/design_works/thumbnail.png' alt='thumbnail' style='width: 100%; height: auto;'>",
             technologies: ["Photoshop", "Illustrator", "My Hand"],
-            period: "2024年11月〜2025年1月",
+            period: "While taking a shower",
             richContent: {
                 ja: `
-                    <h3>駅看板</h3>
-
-                    <h3>パンフレット２０２４</h3>
-
                     <h3>新歓紙の一面広告</h3>
-                    <img src='./images/design_works/football_ad1.png' alt='paper_ad'>
+                    <img style="max-height: 700px;" src='./images/design_works/football_ad1.png' alt='paper_ad'>
+
+                    <h3>SNSコンテンツ</h3>
+                    <div style='width: 100%; overflow-x: auto; white-space: nowrap; padding: 20px;'>
+                        <img src='./images/design_works/sns1.png' alt="sns1" style="max-height: 400px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/design_works/sns2.png' alt="sns2" style="max-height: 400px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/design_works/sns3.png' alt="sns3" style="max-height: 400px; margin-right: 10px; display: inline-block;">
+                    </div>
+
+                    <h3>新歓パンフレット</h3>
+                    <iframe height="600" src="https://drive.google.com/file/d/17sHgWlB2teB97fwihvM-UUAeKbPZb8gP/preview" title="VIKINGS Brochure 2023"></iframe>
+
+                    <h3>駅看板</h3>
+                    <p>京王井の頭線・駒場東大前駅に掲載されている。</p>
+                    <img style="max-height: 500px;" src='./images/design_works/brochure.jpg' alt='brochure'>
                 `,
                 en: `
-                    <h3>station ad</h3>
+                    <h3>New Student Welcome Paper Full-Page Advertisement</h3>
+                    <img style="max-height: 700px;" src='./images/design_works/football_ad1.png' alt='paper_ad'>
 
-                    <h3>leafret 2024</h3>
+                    <h3>SNS Content</h3>
+                    <div style='width: 100%; overflow-x: auto; white-space: nowrap; padding: 20px;'>
+                        <img src='./images/design_works/sns1.png' alt="sns1" style="max-height: 400px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/design_works/sns2.png' alt="sns2" style="max-height: 400px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/design_works/sns3.png' alt="sns3" style="max-height: 400px; margin-right: 10px; display: inline-block;">
+                    </div>
 
-                    <h3>ad in school paper</h3>
-                    <img src='./images/design_works/football_ad1.png' alt='paper_ad'>
+                    <h3>Brochure</h3>
+                    <iframe height="600" src="https://drive.google.com/file/d/17sHgWlB2teB97fwihvM-UUAeKbPZb8gP/preview" title="VIKINGS Brochure 2023"></iframe>
+
+                    <h3>Station Advertisement</h3>
+                    <p>Featured at Komaba-Todaimae Station on the Keio Inokashira Line.</p>
+                    <img style="max-height: 500px;" src='./images/design_works/brochure.jpg' alt='brochure'>
                 
                 `
             },
@@ -270,7 +248,7 @@ class HandTracker:
             },
         },
         {
-            id: "stirling_engine",
+            id: "stirling-engine",
             title: {
                 ja: "スターリングエンジン",
                 en: "Stirling Engine"
@@ -285,7 +263,7 @@ class HandTracker:
             richContent: {
                 ja: `
                     <h3>完成品</h3>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/3HUCLQ65Ggw?si=hGABOGLsOHZqKuSC" title="Stirling Engine"></iframe>
+                    <iframe height="300" src="https://www.youtube.com/embed/3HUCLQ65Ggw?rel=0" title="Stirling Engine" allowfullscreen></iframe>
                     <p>学生5人のチームで、スターリングエンジンの計画、設計、加工、組み立ての全工程を行った。</p>
 
                     <h3>計画</h3>
@@ -294,28 +272,28 @@ class HandTracker:
                     <h3>設計</h3>
                     熱力学と材料力学の計算に基づいて詳細な寸法を決定。CADに起こしていった。
                     <div style='width: 100%; overflow-x: auto; white-space: nowrap; padding: 20px;'>
-                        <img src='./images/stirling_engine/blueprint1.jpg' alt="blueprint1" style="height: 200px; margin-right: 10px; display: inline-block;">
-                        <img src='./images/stirling_engine/blueprint2.jpg' alt="blueprint2" style="height: 200px; margin-right: 10px; display: inline-block;">
-                        <img src='./images/stirling_engine/blueprint3.jpg' alt="blueprint3" style="height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/blueprint1.jpg' alt="blueprint1" style="max-height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/blueprint2.jpg' alt="blueprint2" style="max-height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/blueprint3.jpg' alt="blueprint3" style="max-height: 200px; margin-right: 10px; display: inline-block;">
                     </div>
 
                     <h3>加工</h3>
                     金属塊を旋盤で削り出し、切断やネジ穴あけを行なった。
                     <div style='width: 100%; overflow-x: auto; white-space: nowrap; padding: 20px;'>
-                        <img src='./images/stirling_engine/manufacturing1.jpeg' alt="manufacturing1" style="height: 200px; margin-right: 10px; display: inline-block;">
-                        <img src='./images/stirling_engine/manufacturing2.jpeg' alt="manufacturing2" style="height: 200px; margin-right: 10px; display: inline-block;">
-                        <img src='./images/stirling_engine/manufacturing3.jpeg' alt="manufacturing3" style="height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/manufacturing1.jpeg' alt="manufacturing1" style="max-height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/manufacturing2.jpeg' alt="manufacturing2" style="max-height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/manufacturing3.jpeg' alt="manufacturing3" style="max-height: 200px; margin-right: 10px; display: inline-block;">
                     </div>
 
                     <h3>組み立て</h3>
                     軸合わせの微調整を繰り返しながら組み立てた。
                     <div style='width: 100%; overflow-x: auto; white-space: nowrap; padding: 20px;'>
-                        <img src='./images/stirling_engine/assembling.jpeg' alt="assembling" style="height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/assembly.jpeg' alt="assembly" style="max-height: 200px; margin-right: 10px; display: inline-block;">
                     </div>
                 `,
                 en: `
                     <h3>Finished Product</h3>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/3HUCLQ65Ggw?si=hGABOGLsOHZqKuSC" title="Stirling Engine"></iframe>
+                    <iframe height="300" src="https://www.youtube.com/embed/3HUCLQ65Ggw?si=hGABOGLsOHZqKuSC?rel=0" title="Stirling Engine" allowfullscreen></iframe>
                     <p>A team of 5 students conducted the entire process of planning, designing, manufacturing, and assembling a Stirling engine.</p>
 
                     <h3>Planning</h3>
@@ -324,36 +302,36 @@ class HandTracker:
                     <h3>Design</h3>
                     Based on thermodynamic and material mechanics calculations, we determined detailed dimensions and created CAD models.
                     <div style='width: 100%; overflow-x: auto; white-space: nowrap; padding: 20px;'>
-                        <img src='./images/stirling_engine/blueprint1.jpg' alt="blueprint1" style="height: 200px; margin-right: 10px; display: inline-block;">
-                        <img src='./images/stirling_engine/blueprint2.jpg' alt="blueprint2" style="height: 200px; margin-right: 10px; display: inline-block;">
-                        <img src='./images/stirling_engine/blueprint3.jpg' alt="blueprint3" style="height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/blueprint1.jpg' alt="blueprint1" style="max-height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/blueprint2.jpg' alt="blueprint2" style="max-height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/blueprint3.jpg' alt="blueprint3" style="max-height: 200px; margin-right: 10px; display: inline-block;">
                     </div>
 
                     <h3>Manufacturing</h3>
                     We machined metal blocks using a lathe, performed cutting operations, and drilled screw holes.
                     <div style='width: 100%; overflow-x: auto; white-space: nowrap; padding: 20px;'>
-                        <img src='./images/stirling_engine/manufacturing1.jpeg' alt="manufacturing1" style="height: 200px; margin-right: 10px; display: inline-block;">
-                        <img src='./images/stirling_engine/manufacturing2.jpeg' alt="manufacturing2" style="height: 200px; margin-right: 10px; display: inline-block;">
-                        <img src='./images/stirling_engine/manufacturing3.jpeg' alt="manufacturing3" style="height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/manufacturing1.jpeg' alt="manufacturing1" style="max-height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/manufacturing2.jpeg' alt="manufacturing2" style="max-height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/manufacturing3.jpeg' alt="manufacturing3" style="max-height: 200px; margin-right: 10px; display: inline-block;">
                     </div>
 
                     <h3>Assembly</h3>
                     We assembled the engine while repeatedly making fine adjustments to shaft alignment.
                     <div style='width: 100%; overflow-x: auto; white-space: nowrap; padding: 20px;'>
-                        <img src='./images/stirling_engine/assembly.jpeg' alt="assembly" style="height: 200px; margin-right: 10px; display: inline-block;">
+                        <img src='./images/stirling_engine/assembly.jpeg' alt="assembly" style="max-height: 200px; margin-right: 10px; display: inline-block;">
                     </div>
                 `
             },
             detailedDescription: {
-                ja: "VR ゴーグル等の HMD 装着時の手元が見えない状況を想定した、キーボード入力に変わる新たな入力インタフェースを提案、実装しました。",
-                en: "Proposed and implemented a new input interface to replace keyboard input when wearing HMDs like VR goggles."
+                ja: "あとで消す",
+                en: "delete later"
             },
         },
         {
             id: "mini-projects",
             title: {
                 ja: "ミニプロジェクト集",
-                en: "Vision Assistant App for the Visually Impaired"
+                en: "Mini Projects"
             },
             description: {
                 ja: "自作bash, 自作renderer, 自作decoderなどのミニプロジェクト集",
@@ -381,6 +359,11 @@ class HandTracker:
             image: "画像",
             technologies: ["タグ", "Computer Vision", "Hand Tracking", "VR"],
             period: "開発期間 2024年11月〜2025年1月",
+            github: "https://github.com/medamawa/yubi-key",
+            award: {
+                ja: "プログラミングコンテスト トップ3入賞",
+                en: "Top 3 in Programming Contest"
+            },
             richContent: {
                 ja: `
                 <h1>header 1</h1>
@@ -402,7 +385,7 @@ class HandTracker:
                 </ul>
                     
                 <h4>youtube link</h4>
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/gRjBkVZlTOw?si=nk9uV7Cedu-1ij8Y" title="指キータス デモ"></iframe>
+                <iframe height="300" src="https://www.youtube.com/embed/gRjBkVZlTOw?si=nk9uV7Cedu-1ij8Y?rel=0" title="指キータス デモ" allowfullscreen></iframe>
                                         
                 <h4>code</h4>
                 <pre><code>
@@ -431,7 +414,7 @@ int main()
                     </ul>
                     
                     <h4>Demo Video</h4>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Input Interface Demo"></iframe>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" title="Input Interface Demo" allowfullscreen></iframe>
                     
                     <h4>Core Implementation</h4>
                     <pre><code>import mediapipe as mp
@@ -464,11 +447,6 @@ class HandTracker:
                 ja: "詳細説明",
                 en: "detailed description"
             },
-            github: "https://github.com/medamawa/yubi-key",
-            award: {
-                ja: "プログラミングコンテスト トップ3入賞",
-                en: "Top 3 in Programming Contest"
-            }
         },
     ],
     
