@@ -18,8 +18,8 @@ const ModalManager = {
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
         
-        // Google Analytics でモーダル表示を追跡
-        Analytics.trackModalView('project-modal', project.id);
+        // Google Analytics でプロジェクトモーダル表示を追跡
+        Analytics.trackProjectModalView(project);
         
         // 動的に追加されたスクリプトを実行
         this.executeScripts(modalBody);
@@ -120,7 +120,7 @@ const ModalManager = {
     generateGitHubSection(project) {
         return `
             <div class="modal-actions">
-                <a href="${project.github}" target="_blank" class="btn-primary" onclick="Analytics.trackExternalLink('${project.github}', 'project-github-${project.id}')">
+                <a href="${project.github}" target="_blank" class="btn-primary" onclick="Analytics.trackGitHubClick('project-modal', '${project.id}')">
                     <i class="fab fa-github"></i>
                     GitHub ${currentLanguage === 'ja' ? 'で見る' : 'Repository'}
                 </a>

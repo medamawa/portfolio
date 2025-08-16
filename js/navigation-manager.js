@@ -32,8 +32,8 @@ const NavigationManager = {
             behavior: 'smooth'
         });
         
-        // Google Analytics でセクション閲覧を追跡
-        Analytics.trackSectionView(targetId);
+        // Google Analytics でナビゲーションを追跡
+        Analytics.trackNavigation(targetId);
         
         // モバイルメニューが開いている場合は閉じる
         if (isMenuOpen) {

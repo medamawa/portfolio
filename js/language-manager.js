@@ -29,8 +29,8 @@ const LanguageManager = {
         const fromLang = currentLanguage;
         currentLanguage = currentLanguage === 'ja' ? 'en' : 'ja';
         
-        // Google Analytics で言語切り替えを追跡
-        Analytics.trackLanguageChange(fromLang, currentLanguage);
+        // Google Analytics で言語切り替えを追跡（どこから切り替えたかは呼び出し元で判定）
+        Analytics.trackLanguageSwitch(fromLang, currentLanguage, 'button');
         
         this.updateLanguage();
         this.updateLanguageButton();

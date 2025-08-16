@@ -48,7 +48,8 @@ const ProjectsRenderer = {
         const projectElement = document.createElement('div');
         projectElement.className = 'project-card';
         projectElement.onclick = () => {
-            Analytics.trackButtonClick(`project-card-${project.id}`, 'project-card');
+            const title = project.title[currentLanguage] || project.title.ja;
+            Analytics.trackProjectCardClick(project.id, title);
             ModalManager.openProjectModal(project);
         };
         

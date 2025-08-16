@@ -3,69 +3,111 @@
  */
 const Analytics = {
     /**
-     * ボタンクリックイベントを追跡
+     * CTA（Call to Action）ボタンクリックを追跡
      */
-    trackButtonClick(buttonName, buttonType = 'button') {
+    trackCTAClick(ctaName, location) {
         if (typeof gtag !== 'undefined') {
-            gtag('event', 'click', {
+            gtag('event', 'cta_click', {
                 event_category: 'engagement',
-                event_label: buttonName,
-                custom_parameter_1: buttonType,
+                event_label: ctaName,
+                cta_location: location,
                 value: 1
             });
         }
     },
 
     /**
-     * モーダル表示イベントを追跡
+     * プロジェクトカードクリックを追跡
      */
-    trackModalView(modalName, projectId = null) {
+    trackProjectCardClick(projectId, projectTitle) {
         if (typeof gtag !== 'undefined') {
-            gtag('event', 'view_item', {
-                event_category: 'engagement',
-                event_label: modalName,
+            gtag('event', 'select_content', {
+                event_category: 'project_interaction',
+                event_label: `project_card_${projectId}`,
+                content_type: 'project',
                 item_id: projectId,
+                custom_parameter_1: projectTitle,
                 value: 1
             });
         }
     },
 
     /**
-     * セクション閲覧イベントを追跡
+     * プロジェクトモーダル表示を追跡
      */
-    trackSectionView(sectionName) {
+    trackProjectModalView(project) {
         if (typeof gtag !== 'undefined') {
-            gtag('event', 'page_view', {
+            const projectTitle = project.title[currentLanguage] || project.title.ja;
+            
+            gtag('event', 'view_item', {
+                event_category: 'project_interaction',
+                event_label: `modal_${project.id}`,
+                content_type: 'project',
+                item_id: project.id,
+                item_name: projectTitle,
+                value: 1
+            });
+        }
+    },
+
+    /**
+     * ナビゲーションクリックを追跡
+     */
+    trackNavigation(sectionName, navigationType = 'header') {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'navigate', {
                 event_category: 'navigation',
-                event_label: sectionName,
+                event_label: `section_${sectionName}`,
+                navigation_type: navigationType,
+                destination: sectionName,
                 value: 1
             });
         }
     },
 
     /**
-     * 言語切り替えイベントを追跡
+     * 言語切り替えを追跡
      */
-    trackLanguageChange(fromLang, toLang) {
+    trackLanguageSwitch(fromLang, toLang, switchLocation) {
         if (typeof gtag !== 'undefined') {
-            gtag('event', 'language_change', {
+            gtag('event', 'language_switch', {
                 event_category: 'user_preference',
                 event_label: `${fromLang}_to_${toLang}`,
+                switch_location: switchLocation,
+                from_language: fromLang,
+                to_language: toLang,
                 value: 1
             });
         }
     },
 
     /**
-     * 外部リンククリックイベントを追跡
+     * GitHubリンククリックを追跡
      */
-    trackExternalLink(url, linkName) {
+    trackGitHubClick(context, projectId = null) {
         if (typeof gtag !== 'undefined') {
-            gtag('event', 'click', {
-                event_category: 'outbound',
-                event_label: linkName,
+            gtag('event', 'github_click', {
+                event_category: 'external_link',
+                event_label: `github_${context}`,
+                link_context: context,
+                project_id: projectId,
                 transport_type: 'beacon',
-                custom_parameter_1: url
+                value: 1
+            });
+        }
+    },
+
+    /**
+     * メニュー操作を追跡
+     */
+    trackMenuAction(action, menuType = 'mobile') {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'menu_interaction', {
+                event_category: 'ui_interaction',
+                event_label: `menu_${action}`,
+                menu_type: menuType,
+                action: action,
+                value: 1
             });
         }
     }
