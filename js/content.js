@@ -156,10 +156,6 @@ const content = {
                     <p>This concept is a personal favorite of mine, so I'm thinking of leisurely continuing development if I feel motivated in the future. I'm looking for engineers who would like to develop this together!!</p>
                 `
             },
-            detailedDescription: {
-                ja: "あとで消す",
-                en: "delete later"
-            },
         },
         {
             id: "yubi-key",
@@ -258,10 +254,6 @@ const content = {
 
             `
             },
-            detailedDescription: {
-                ja: "あとで消す",
-                en: "delete later"
-            },
         },
         {
             id: "design-works",
@@ -314,10 +306,6 @@ const content = {
                     <img style="max-height: 500px;" src='./images/design_works/brochure.jpg' alt='brochure'>
                 
                 `
-            },
-            detailedDescription: {
-                ja: "あとで消す",
-                en: "delete later"
             },
         },
         {
@@ -395,10 +383,6 @@ const content = {
                     </div>
                 `
             },
-            detailedDescription: {
-                ja: "あとで消す",
-                en: "delete later"
-            },
         },
         {
             id: "projects",
@@ -473,10 +457,6 @@ const content = {
                         <li>Achieves approximately 50% compression ratio on typical text files</li>
                     </ul>
                 `
-            },
-            detailedDescription: {
-                ja: "あとで消す",
-                en: "delete later"
             },
         },
     ],

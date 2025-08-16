@@ -18,6 +18,9 @@ const ModalManager = {
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
         
+        // Google Analytics でモーダル表示を追跡
+        Analytics.trackModalView('project-modal', project.id);
+        
         // 動的に追加されたスクリプトを実行
         this.executeScripts(modalBody);
     },
@@ -33,10 +36,6 @@ const ModalManager = {
         // リッチコンテンツ対応
         if (project.richContent && project.richContent[currentLanguage]) {
             modalContent += this.generateRichContent(project.richContent[currentLanguage]);
-        } else {
-            // フォールバック: 従来の詳細説明
-            const detailedDescription = project.detailedDescription[currentLanguage] || project.detailedDescription.ja;
-            modalContent += this.generateBasicDescription(detailedDescription);
         }
         
         modalContent += this.generateTechnologiesSection(project);
@@ -79,16 +78,6 @@ const ModalManager = {
         return `<div class="modal-rich-content">${richContent}</div>`;
     },
 
-    /**
-     * 基本的な説明を生成（フォールバック）
-     */
-    generateBasicDescription(description) {
-        return `
-            <div class="modal-description">
-                <p>${description}</p>
-            </div>
-        `;
-    },
 
     /**
      * 技術セクションを生成
@@ -131,7 +120,7 @@ const ModalManager = {
     generateGitHubSection(project) {
         return `
             <div class="modal-actions">
-                <a href="${project.github}" target="_blank" class="btn-primary">
+                <a href="${project.github}" target="_blank" class="btn-primary" onclick="Analytics.trackExternalLink('${project.github}', 'project-github-${project.id}')">
                     <i class="fab fa-github"></i>
                     GitHub ${currentLanguage === 'ja' ? 'で見る' : 'Repository'}
                 </a>

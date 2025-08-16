@@ -7,6 +7,15 @@
     <title>Sogo Nishihara - Portfolio</title>
     <link rel="stylesheet" href="./css/main.css">
     <script src="https://kit.fontawesome.com/8f7d074785.js" crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DVKGXP3WGM"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-DVKGXP3WGM');
+    </script>
 </head>
 
 <body>
@@ -27,7 +36,7 @@
                     <li><a href="#projects" data-nav="projects">Projects</a></li>
                     <li><a href="#experience" data-nav="experience">Experience</a></li>
                     <li><a href="#contact" data-nav="contact">Contact</a></li>
-                    <li><button class="lang-toggle" onclick="toggleLanguage()">EN</button></li>
+                    <li><button class="lang-toggle" onclick="toggleLanguage(); Analytics.trackButtonClick('language-toggle', 'header')">EN</button></li>
                 </ul>
             </nav>
             
@@ -49,7 +58,7 @@
                 <li><a href="#projects" data-nav="projects" onclick="closeMenu()">Projects</a></li>
                 <li><a href="#experience" data-nav="experience" onclick="closeMenu()">Experience</a></li>
                 <li><a href="#contact" data-nav="contact" onclick="closeMenu()">Contact</a></li>
-                <li><button class="lang-toggle mobile" onclick="toggleLanguage()">EN</button></li>
+                <li><button class="lang-toggle mobile" onclick="toggleLanguage(); Analytics.trackButtonClick('language-toggle', 'mobile')">EN</button></li>
             </ul>
         </nav>
     </div>
@@ -80,8 +89,8 @@
                 <h2 class="hero-title" data-text="hero-title"></h2>
                 <p class="hero-subtitle" data-text="hero-subtitle"></p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn-primary" data-text="view-projects">プロジェクトを見る</a>
-                    <a href="https://github.com/medamawa" target="_blank" class="btn-secondary github-btn">GitHub</a>
+                    <a href="#projects" class="btn-primary" data-text="view-projects" onclick="Analytics.trackButtonClick('view-projects', 'hero-cta')">プロジェクトを見る</a>
+                    <a href="https://github.com/medamawa" target="_blank" class="btn-secondary github-btn" onclick="Analytics.trackExternalLink('https://github.com/medamawa', 'hero-github')">GitHub</a>
                 </div>
             </div>
         </div>
@@ -136,7 +145,7 @@
                     <strong>Email:</strong> <a href="mailto:sogonishi@gmail.com">sogonishi@gmail.com</a>
                 </div>
                 <div class="contact-item">
-                    <strong>GitHub:</strong> <a href="https://github.com/medamawa" target="_blank">github.com/medamawa</a>
+                    <strong>GitHub:</strong> <a href="https://github.com/medamawa" target="_blank" onclick="Analytics.trackExternalLink('https://github.com/medamawa', 'contact-github')">github.com/medamawa</a>
                 </div>
                 <div class="contact-item">
                     <strong data-text="location-label">所在地:</strong> <span data-text="location">東京, 日本</span>
@@ -154,6 +163,7 @@
     
     <script src="js/content.js"></script>
     <script src="js/utils.js"></script>
+    <script src="js/analytics.js"></script>
     <script src="js/language-manager.js"></script>
     <script src="js/mobile-menu.js"></script>
     <script src="js/modal-manager.js"></script>
