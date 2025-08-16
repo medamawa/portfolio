@@ -36,18 +36,30 @@ const Analytics = {
      * プロジェクトモーダル表示を追跡
      */
     trackProjectModalView(project) {
-        if (typeof gtag !== 'undefined') {
-            const projectTitle = project.title[currentLanguage] || project.title.ja;
-            
-            gtag('event', 'view_item', {
-                event_category: 'project_interaction',
-                event_label: `modal_${project.id}`,
-                content_type: 'project',
-                item_id: project.id,
-                item_name: projectTitle,
-                value: 1
-            });
-        }
+        const trackEvent = () => {
+            if (typeof gtag !== 'undefined') {
+                const currentLang = (typeof currentLanguage !== 'undefined') ? currentLanguage : 'ja';
+                const projectTitle = project.title[currentLang] || project.title.ja;
+                
+                console.log(`🎯 Tracking modal view: ${project.id} - ${projectTitle}`);
+                
+                gtag('event', 'view_item', {
+                    event_category: 'project_interaction',
+                    event_label: `modal_${project.id}`,
+                    content_type: 'project',
+                    item_id: project.id,
+                    item_name: projectTitle,
+                    value: 1
+                });
+                
+                console.log(`✅ Modal tracking sent for project: ${project.id}`);
+            } else {
+                console.warn('⚠️ gtag not available, retrying modal tracking in 500ms');
+                setTimeout(trackEvent, 500);
+            }
+        };
+        
+        trackEvent();
     },
 
     /**
