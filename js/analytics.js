@@ -41,7 +41,7 @@ const Analytics = {
                 const currentLang = (typeof currentLanguage !== 'undefined') ? currentLanguage : 'ja';
                 const projectTitle = project.title[currentLang] || project.title.ja;
                 
-                console.log(`🎯 Tracking modal view: ${project.id} - ${projectTitle}`);
+                console.log(`Tracking modal view: ${project.id} - ${projectTitle}`);
                 
                 gtag('event', 'view_item', {
                     event_category: 'project_interaction',
@@ -52,9 +52,9 @@ const Analytics = {
                     value: 1
                 });
                 
-                console.log(`✅ Modal tracking sent for project: ${project.id}`);
+                console.log(`Modal tracking sent for project: ${project.id}`);
             } else {
-                console.warn('⚠️ gtag not available, retrying modal tracking in 500ms');
+                console.warn('gtag not available, retrying modal tracking in 500ms');
                 setTimeout(trackEvent, 500);
             }
         };
