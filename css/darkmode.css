@@ -38,7 +38,7 @@
 
     /* Header */
     .header {
-        background: var(--backdrop-blur);
+        background: rgba(26, 31, 46, 0.7);
         backdrop-filter: blur(20px);
     }
 
@@ -52,7 +52,7 @@
 
     /* Mobile Navigation */
     .mobile-nav {
-        background: var(--backdrop-blur);
+        background: rgba(26, 31, 46, 0.7);
         backdrop-filter: blur(20px);
     }
 

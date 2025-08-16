@@ -46,6 +46,9 @@ const NavigationManager = {
  * ヘッダー管理機能
  */
 const HeaderManager = {
+    lastScrollY: 0,
+    isHidden: false,
+
     /**
      * スクロール時のヘッダー効果
      */
@@ -53,38 +56,23 @@ const HeaderManager = {
         const header = document.querySelector('.header');
         if (!header) return;
         
-        if (window.scrollY > 50) {
-            this.applyScrolledStyle(header);
-        } else {
-            this.applyDefaultStyle(header);
+        const currentScrollY = window.scrollY;
+        
+        // スクロール方向を判定
+        if (currentScrollY > this.lastScrollY && currentScrollY > 100) {
+            // 下にスクロール中かつ100px以上スクロールした場合はヘッダーを隠す
+            if (!this.isHidden) {
+                header.classList.add('hidden');
+                this.isHidden = true;
+            }
+        } else if (currentScrollY < this.lastScrollY || currentScrollY <= 50) {
+            // 上にスクロール中または上部にいる場合はヘッダーを表示
+            if (this.isHidden) {
+                header.classList.remove('hidden');
+                this.isHidden = false;
+            }
         }
-    },
-
-    /**
-     * スクロール時のスタイルを適用
-     */
-    applyScrolledStyle(header) {
-        const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (isDarkMode) {
-            header.style.background = 'var(--backdrop-blur)';
-            header.style.boxShadow = '0 2px 20px var(--shadow-medium)';
-        } else {
-            header.style.background = 'rgba(255, 255, 255, 0.98)';
-            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        }
-    },
-
-    /**
-     * デフォルトスタイルを適用
-     */
-    applyDefaultStyle(header) {
-        const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (isDarkMode) {
-            header.style.background = 'var(--backdrop-blur)';
-            header.style.boxShadow = 'none';
-        } else {
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
-            header.style.boxShadow = 'none';
-        }
+        
+        this.lastScrollY = currentScrollY;
     }
 };

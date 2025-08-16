@@ -4,13 +4,18 @@
 
 /* Header */
 .header {
-    position: relative;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(20px);
     z-index: 1000;
+    transition: transform 0.6s ease, background-color 0.3s ease;
+}
+
+.header.hidden {
+    transform: translateY(-100%);
 }
 
 .header .container {
@@ -92,7 +97,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 999;
+    z-index: 950;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -111,7 +116,8 @@
     bottom: 0;
     /* background: rgba(0, 0, 0, 0.3); */
     backdrop-filter: blur(0px);
-    transition: backdrop-filter 1.8s ease;
+    transition: backdrop-filter 0.6s ease-in-out;
+    z-index: 900;
 }
 
 .mobile-nav-overlay.active .mobile-nav-blur {
@@ -123,11 +129,12 @@
     top: 70px;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     transform: translateY(-100%);
     transition: transform 0.3s ease;
+    transform-origin: top;
+    z-index: 1010;
 }
 
 .mobile-nav-overlay.active .mobile-nav {
