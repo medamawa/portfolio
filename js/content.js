@@ -89,6 +89,79 @@ const content = {
     // Projects data
     projects: [
         {
+            id: "locomi",
+            title: {
+                ja: "位置情報ベースのSNS & ARレンズ",
+                en: "Location-Based SNS & AR Lens"
+            },
+            description: {
+                ja: "位置情報に紐づいた投稿をARで表示できるスマホアプリ",
+                en: "A smartphone app that can display location-linked posts in ARRetryClaude can make mistakes. Please double-check responses."
+            },
+            period: "2020年5月〜9月",
+            github: "https://github.com/medamawa/locomiLens",
+            image: "<img src='./images/locomi/thumbnail.png' alt='thumbnail' style='width: 100%; height: auto;'>",
+            technologies: ["PHP", "Swift", "Laravel", "MySQL", "REST API", "AR", "map"],
+            richContent: {
+                ja: `
+                    <h3>プロジェクト背景</h3>
+                    <p>投稿が時系列順に並べられた従来のSNSとは違い、地図上に投稿を残すというコンセプトのSNSです。スマホをかざせばARで投稿を見ることができる機能も開発しました。</p>
+                    <iframe height="300" src="https://www.youtube.com/embed/FoSsrp1GUYw?si=p2KbmLKeH4v9E2i_?rel=0" title="locomi" allowfullscreen></iframe>
+
+                    <h4>主な機能</h4>
+                    <ul>
+                        <li>位置情報に紐づいた投稿の作成・表示</li>
+                        <li>ARを用いた実世界への投稿表示</li>
+                        <li>リアルタイムでの投稿マッピング</li>
+                        <li>JWTを用いたセキュアなユーザー管理</li>
+                        <li>keychainで認証情報を保持</li>
+                    </ul>
+
+                    <h3>技術的な挑戦</h3>
+                    <p>Laravelで認証や投稿管理を行うAPIを開発し、SwiftでiOSアプリを制作しました。特に困難だったのは、以下の点です。</p>
+                    <ul>
+                        <li>位置情報誤差の扱い</li>
+                        <li>位置情報ベースでの投稿ソーティング</li>
+                        <li>実運用に耐えうるAR機能の実装</li>
+                    </ul>
+
+                    <h3>開発を辞めた理由と今後</h3>
+                    <p>このSNSは、コロナが大流行して家に篭っていた時期（当時、高校3年生）に、地図上にいろんな投稿があれば家にいても旅行気分が味わえる!!、という好奇心から開発を始めたものです。しかし、受験勉強が本格化するにつれて開発に充てられる時間が少なくなり、デモ動画を撮影した時点で初期コンセプトの具現化は達成されたので開発を辞めました。</p>
+                    <p>このコンセプトは自分のお気に入りなので、今後やる気が出ればのんびりと開発をしようと思います。その時に一緒に開発してくれるエンジニアを募集してます!!</p>
+                `,
+                en: `
+                    <h3>Project Background</h3>
+                    <p>Unlike traditional social media platforms where posts are arranged in chronological order, this is a social media concept that allows users to leave posts on a map. I also developed a feature that enables users to view posts in AR by holding up their smartphones.</p>
+                    <iframe height="300" src="https://www.youtube.com/embed/FoSsrp1GUYw?si=p2KbmLKeH4v9E2i_?rel=0" title="locomi" allowfullscreen></iframe>
+
+                    <h4>Main Features</h4>
+                    <ul>
+                        <li>Creating and displaying posts linked to location information</li>
+                        <li>Displaying posts in the real world using AR</li>
+                        <li>Real-time post mapping</li>
+                        <li>Secure user management using JWT</li>
+                        <li>Authentication information stored in keychain</li>
+                    </ul>
+
+                    <h3>Technical Challenges</h3>
+                    <p>I developed an API using Laravel for authentication and post management, and created an iOS app using Swift. The particularly challenging aspects were:</p>
+                    <ul>
+                        <li>Handling location information errors</li>
+                        <li>Sorting posts based on location information</li>
+                        <li>Implementing AR functionality that could withstand actual operation</li>
+                    </ul>
+
+                    <h3>Why Development Was Discontinued and Future Plans</h3>
+                    <p>This social media platform began development out of curiosity during the COVID-19 pandemic when I was staying at home (I was a high school senior at the time), with the idea that having various posts on a map would allow people to feel like they were traveling even while staying at home!! However, as entrance exam preparations intensified, I had less time to dedicate to development. Since the initial concept had been realized by the time I filmed the demo video, I discontinued development.</p>
+                    <p>This concept is a personal favorite of mine, so I'm thinking of leisurely continuing development if I feel motivated in the future. I'm looking for engineers who would like to develop this together!!</p>
+                `
+            },
+            detailedDescription: {
+                ja: "あとで消す",
+                en: "delete later"
+            },
+        },
+        {
             id: "yubi-key",
             title: {
                 ja: "HMD時代に向けた新しい入力インタフェース",
@@ -328,124 +401,82 @@ const content = {
             },
         },
         {
-            id: "mini-projects",
+            id: "projects",
             title: {
                 ja: "ミニプロジェクト集",
                 en: "Mini Projects"
             },
             description: {
-                ja: "自作bash, 自作renderer, 自作decoderなどのミニプロジェクト集",
-                en: "An assistive application for visually impaired users using real-time image recognition"
+                ja: "自作bash, Raytracer, Huffman Encoder/Decoder, …etc",
+                en: "Custom Bash, Raytracer, Huffman Encoder/Decoder, …etc"
             },
-            detailedDescription: {
-                ja: "リアルタイム画像認識技術を用いて、盲導犬の代替となるようなアプリを制作しました。カメラから取得した映像をリアルタイムで解析し、障害物の検出や経路案内を音声で提供します。機械学習モデルを活用して、歩行者、車両、信号機などを高精度で認識し、安全な移動をサポートします。",
-                en: "Created an app that serves as an alternative to guide dogs using real-time image recognition technology. It analyzes video footage from the camera in real-time and provides obstacle detection and route guidance through audio. Using machine learning models, it accurately recognizes pedestrians, vehicles, traffic lights, and supports safe movement."
-            },
-            technologies: ["Python", "OpenCV", "Machine Learning", "Computer Vision"],
-            period: "2024年2月〜3月",
-            github: "https://github.com/medamawa/navi-ken",
-            image: "💻"
-        },
-        {
-            id: "sample",
-            title: {
-                ja: "タイトル",
-                en: "title"
-            },
-            description: {
-                ja: "説明",
-                en: "description"
-            },
-            image: "画像",
-            technologies: ["タグ", "Computer Vision", "Hand Tracking", "VR"],
-            period: "開発期間 2024年11月〜2025年1月",
-            github: "https://github.com/medamawa/yubi-key",
-            award: {
-                ja: "プログラミングコンテスト トップ3入賞",
-                en: "Top 3 in Programming Contest"
-            },
+            period: "2020年5月〜9月",
+            github: "https://github.com/medamawa",
+            image: "<img src='./images/mini_projects/thumbnail.png' alt='thumbnail' style='width: 100%; height: auto;'>",
+            technologies: ["C/C++", "Linus Torvalds", "Algorithm", "Computer Science", "Laravel", "42Tokyo", "return (0);"],
             richContent: {
                 ja: `
-                <h1>header 1</h1>
-                <h2>header 2</h2>
-                <h3>header 3</h3>
-                <h4>header 4</h4>
-                <p>p tag text <strong>strong one</strong></p>
-                plane text
+                    <h3>自作bash</h3>
+                    <script src="https://asciinema.org/a/eUFYKjNtIZ8StjsK6YKRtfisi.js" id="asciicast-eUFYKjNtIZ8StjsK6YKRtfisi" async="true"></script>
+                    <h4>実装</h4>
+                    <ul>
+                        <li>レキサー、パーサー</li>
+                        <li>環境変数のexpand</li>
+                        <li>プロセス間通信</li>
+                        <li>ビルトイン関数</li>
+                        <li>C言語（システムコール以外は全て自作関数）</li>
+                    </ul>
 
-                <h4>image</h4>
-                <img src='./images/design_works/thumbnail.png' alt='image'>
-                
-                <h4>list</h4>
-                <ul>
-                    <li>list 1</li>
-                    <li>list 2</li>
-                    <li>list 3</li>
-                    <li>list 4</li>
-                </ul>
-                    
-                <h4>youtube link</h4>
-                <iframe height="300" src="https://www.youtube.com/embed/gRjBkVZlTOw?si=nk9uV7Cedu-1ij8Y?rel=0" title="指キータス デモ" allowfullscreen></iframe>
-                                        
-                <h4>code</h4>
-                <pre><code>
-#include <iostream>
-int main()
-{
-    std::cout << 'hello world' << std::endl;
-    return (0);
-}
-                </code></pre>
+                    <h3>Raytracer</h3>
+                    <img style="max-height: 500px;" src='./images/mini_projects/minirt.png' alt='minirt'>
+                    <h4>実装</h4>
+                    <ul>
+                        <li>レイトレーシング</li>
+                        <li>マルチスレッド計算による高速化</li>
+                        <li>メモリセーフな実装</li>
+                    </ul>
+
+                    <h3>Huffman Encoder/Decoder</h3>
+                    <script src="https://asciinema.org/a/s2kiehcA1OqMa7SELa33yA1F1.js" id="asciicast-s2kiehcA1OqMa7SELa33yA1F1" async="true"></script>
+                    <h4>実装</h4>
+                    <ul>
+                        <li>ハフマン符号化と復号化</li>
+                        <li>一般的なテキストファイルでの圧縮率は約50%を達成</li>
+                    </ul>
                 `,
                 en: `
-                    <h3>Project Background</h3>
-                    <p>With the proliferation of HMDs (Head Mounted Displays) like VR goggles, traditional keyboard input faces the challenge of not being able to see your hands. To solve this problem, I developed an innovative interface that performs text input by tracking finger movements.</p>
-                    
-                    <h4>Developed System</h4>
-                    <img src="https://via.placeholder.com/600x400/0066CC/FFFFFF?text=Hand+Tracking+System" alt="Hand Tracking System">
-                    
-                    <h4>Technical Approach</h4>
-                    <p>Used OpenCV and MediaPipe to achieve real-time hand tracking. Specifically utilized the following technologies:</p>
+                    <h3>Custom Bash</h3>
+                    <script src="https://asciinema.org/a/eUFYKjNtIZ8StjsK6YKRtfisi.js" id="asciicast-eUFYKjNtIZ8StjsK6YKRtfisi" async="true"></script>
+                    <h4>Implementation Features</h4>
                     <ul>
-                        <li>High-precision hand landmark detection with MediaPipe</li>
-                        <li>Custom gesture recognition algorithms</li>
-                        <li>Improved input accuracy through machine learning</li>
-                        <li>Real-time processing optimization</li>
+                        <li>Lexer and Parser</li>
+                        <li>Environment variable expansion</li>
+                        <li>Inter-process communication</li>
+                        <li>Built-in functions</li>
+                        <li>C language (all functions custom-built except system calls)</li>
                     </ul>
-                    
-                    <h4>Demo Video</h4>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" title="Input Interface Demo" allowfullscreen></iframe>
-                    
-                    <h4>Core Implementation</h4>
-                    <pre><code>import mediapipe as mp
-import cv2
-import numpy as np
 
-class HandTracker:
-    def __init__(self):
-        self.mp_hands = mp.solutions.hands
-        self.hands = self.mp_hands.Hands(
-            static_image_mode=False,
-            max_num_hands=2,
-            min_detection_confidence=0.7
-        )
-    
-    def process_frame(self, frame):
-        results = self.hands.process(frame)
-        if results.multi_hand_landmarks:
-            return self.extract_landmarks(results)
-        return None</code></pre>
-                    
-                    <h4>Contest Results</h4>
-                    <p>Achieved <strong>Top 3 placement</strong> in a programming contest with 60 participants. Judges praised it as "a practical solution for the future HMD era."</p>
-                    
-                    <h4>CodePen Demo</h4>
-                    <iframe height="400" style="width: 100%;" scrolling="no" title="Hand Gesture Demo" src="https://codepen.io/example/embed/xyz123?default-tab=result" frameborder="no" loading="lazy"></iframe>
+                    <h3>Raytracer</h3>
+                    <img style="max-height: 500px;" src='./images/mini_projects/minirt.png' alt='minirt'>
+                    <h4>Implementation Features</h4>
+                    <ul>
+                        <li>Ray tracing algorithm</li>
+                        <li>Multithreaded computation for performance optimization</li>
+                        <li>Memory-safe implementation</li>
+                    </ul>
+
+                    <h3>Huffman Encoder/Decoder</h3>
+                    <script src="https://asciinema.org/a/s2kiehcA1OqMa7SELa33yA1F1.js" id="asciicast-s2kiehcA1OqMa7SELa33yA1F1" async="true"></script>
+                    <h4>Implementation Features</h4>
+                    <ul>
+                        <li>Huffman encoding and decoding</li>
+                        <li>Achieves approximately 50% compression ratio on typical text files</li>
+                    </ul>
                 `
             },
             detailedDescription: {
-                ja: "詳細説明",
-                en: "detailed description"
+                ja: "あとで消す",
+                en: "delete later"
             },
         },
     ],
