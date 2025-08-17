@@ -1,0 +1,27 @@
+/* ==============================================
+   MAIN CSS FILE
+   ============================================== */
+
+/* base style */
+@import url('base.css');
+
+/* header & navigation */
+@import url('header.css');
+
+/* hero section */
+@import url('hero.css');
+
+/* sections */
+@import url('sections.css');
+
+/* modal */
+@import url('modal.css');
+
+/* components */
+@import url('components.css');
+
+/* responsive design */
+@import url('responsive.css');
+
+/* dark mode styles */
+@import url('darkmode.css');

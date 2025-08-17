@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sogo Nishihara's Portfolio</title>
+    <meta name="description" content="Sogo Nishihara - Portfolio website of a developer.">
+    <meta name="author" content="Sogo Nishihara">
+    <meta name="keywords" content="Sogo Nishihara, portfolio, 西原聡吾, ポートフォリオ">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="https://kit.fontawesome.com/8f7d074785.js" crossorigin="anonymous"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sogo Nishihara",
+        "url": "https://medamawa.github.io",
+        "jobTitle": "Developer",
+        "sameAs": [
+            "https://github.com/medamawa"
+        ]
+    }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DVKGXP3WGM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-DVKGXP3WGM');
+    </script>
+</head>
+
+<body>
+    <!-- Loading... -->
+    <div id="loadingOverlay" class="loading-overlay"></div>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>Sogo Nishihara</h1>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="#about" data-nav="about">About</a></li>
+                    <li><a href="#projects" data-nav="projects">Projects</a></li>
+                    <li><a href="#experience" data-nav="experience">Experience</a></li>
+                    <li><a href="#contact" data-nav="contact">Contact</a></li>
+                    <li><button class="lang-toggle" onclick="toggleLanguage()">EN</button></li>
+                </ul>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <div class="mobile-nav-blur" onclick="closeMenu()"></div>
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="#about" data-nav="about" onclick="closeMenu()">About</a></li>
+                <li><a href="#projects" data-nav="projects" onclick="closeMenu()">Projects</a></li>
+                <li><a href="#experience" data-nav="experience" onclick="closeMenu()">Experience</a></li>
+                <li><a href="#contact" data-nav="contact" onclick="closeMenu()">Contact</a></li>
+                <li><button class="lang-toggle mobile" onclick="toggleLanguage()">EN</button></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+
+                <div class="badge-container">
+                    <div class="badge" id="badge">
+                        <div class="badge-glow"></div>
+                        <!-- Front -->
+                        <div class="badge-face front">
+                            <img src="./images/me.JPG" alt="Profile Front" class="profile-image">
+                            <div class="sparkle"></div>
+                            <div class="sparkle"></div>
+                            <div class="sparkle"></div>
+                            <div class="sparkle"></div>
+                        </div>
+                        <!-- Back -->
+                        <div class="badge-face back">
+                            <img src="./images/me2.JPG" alt="Profile Back" class="profile-image">
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="hero-title" data-text="hero-title"></h2>
+                <p class="hero-subtitle" data-text="hero-subtitle"></p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary" data-text="view-projects">プロジェクトを見る</a>
+                    <a href="https://github.com/medamawa" target="_blank" class="btn-secondary github-btn" onclick="Analytics.trackExternalLinkClick('github', 'hero')">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title" data-text="about-title">About</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p data-text="about-description"></p>
+                </div>
+                <div class="about-skills">
+                    <h3 data-text="skills-title">スキル</h3>
+                    <div class="skills-grid" id="skillsGrid"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title" data-text="projects-title">Projects</h2>
+            <div class="projects-grid" id="projectsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title" data-text="experience-title">Experience</h2>
+            <div class="timeline" id="timeline"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-text="contact-title">Contact</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>GitHub:</strong> <a href="https://github.com/medamawa" target="_blank" onclick="Analytics.trackExternalLinkClick('github', 'contact')">@medamawa</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Twitter:</strong> <a href="https://x.com/akasakatako" target="_blank" onclick="Analytics.trackExternalLinkClick('twitter', 'contact')">@akasakatako</a>
+                </div>
+                <div class="contact-item">
+                    <strong data-text="location-label">所在地:</strong> <span data-text="location">東京, 日本</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Sogo Nishihara. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="js/content.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/analytics.js"></script>
+    <script src="js/language-manager.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/modal-manager.js"></script>
+    <script src="js/navigation-manager.js"></script>
+    <script src="js/renderers.js"></script>
+    <script src="js/animation-manager.js"></script>
+    <script src="js/loading-manager.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
