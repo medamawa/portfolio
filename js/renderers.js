@@ -20,7 +20,7 @@ const SkillsRenderer = {
 
     createSkillElement(skill) {
         const skillElement = document.createElement('div');
-        const name = skill[currentLanguage] || skill.ja;
+        const name = skill[currentLanguage] || skill.en;
         skillElement.className = 'skill-item';
         skillElement.innerHTML = `#${name}`;
         return skillElement;
@@ -50,8 +50,8 @@ const ProjectsRenderer = {
             ModalManager.openProjectModal(project);
         };
         
-        const title = project.title[currentLanguage] || project.title.ja;
-        const description = project.description[currentLanguage] || project.description.ja;
+        const title = project.title[currentLanguage] || project.title.en;
+        const description = project.description[currentLanguage] || project.description.en;
         
         // Set background image if image starts with img tag
         let backgroundImageTag = '';
@@ -102,8 +102,8 @@ const ExperienceRenderer = {
         const timelineItem = document.createElement('div');
         timelineItem.className = 'timeline-item';
         
-        const title = exp.title[currentLanguage] || exp.title.ja;
-        const description = exp.description[currentLanguage] || exp.description.ja;
+        const title = exp.title[currentLanguage] || exp.title.en;
+        const description = exp.description[currentLanguage] || exp.description.en;
         
         timelineItem.innerHTML = `
             <div class="timeline-content">

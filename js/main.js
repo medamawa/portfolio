@@ -3,7 +3,7 @@
  */
 
 // Global variables
-let currentLanguage = 'ja';
+let currentLanguage = 'en';
 let isMenuOpen = false;
 
 /**

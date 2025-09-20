@@ -29,7 +29,7 @@ const ModalManager = {
      * Generate modal content
      */
     generateModalContent(project) {
-        const title = project.title[currentLanguage] || project.title.ja;
+        const title = project.title[currentLanguage] || project.title.en;
         
         let modalContent = this.generateHeaderSection(project, title);
         
@@ -64,7 +64,7 @@ const ModalManager = {
                     <h2 class="modal-title">${title}</h2>
                     <p class="project-period">
                         <i class="fas fa-calendar-alt"></i>
-                        <strong>${currentLanguage === 'ja' ? '期間:' : 'Period:'}</strong> ${project.period}
+                        <strong>${currentLanguage === 'en' ? 'Period:' : '期間:'}</strong> ${project.period}
                     </p>
                 </div>
             </div>
@@ -87,7 +87,7 @@ const ModalManager = {
             <div class="modal-technologies">
                 <h3>
                     <i class="fas fa-code"></i>
-                    ${currentLanguage === 'ja' ? '使用技術' : 'Technologies'}
+                    ${currentLanguage === 'en' ? 'Technologies' : '使用技術'}
                 </h3>
                 <div class="tech-tags">
                     ${project.technologies.map(tech => 
@@ -102,12 +102,12 @@ const ModalManager = {
      * Generate award section
      */
     generateAwardSection(project) {
-        const award = project.award[currentLanguage] || project.award.ja;
+        const award = project.award[currentLanguage] || project.award.en;
         return `
             <div class="modal-award">
                 <h4>
                     <i class="fas fa-trophy"></i>
-                    ${currentLanguage === 'ja' ? '受賞' : 'Award'}
+                    ${currentLanguage === 'en' ? 'Award' : '受賞'}
                 </h4>
                 <p>${award}</p>
             </div>
@@ -122,7 +122,7 @@ const ModalManager = {
             <div class="modal-actions">
                 <a href="${project.github}" target="_blank" class="btn-primary" onclick="Analytics.trackExternalLinkClick('github', 'project-modal', '${project.id}')">
                     <i class="fab fa-github"></i>
-                    GitHub ${currentLanguage === 'ja' ? 'で見る' : 'Repository'}
+                    GitHub ${currentLanguage === 'en' ? 'Repository' : 'で見る'}
                 </a>
             </div>
         `;
